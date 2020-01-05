@@ -90,7 +90,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                 </div>
             </div> -->
-            <button class="btn btn-primary btn-block" type="submit">Regiter</button>
+            <button class="btn btn-primary" type="submit">Regiter</button>
+            <button class="btn btn-primary"><a class="text-white" href="./list.php?>">Cancel</a></button>
         </form>
       <!-- </div> -->
             </div>

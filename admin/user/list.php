@@ -107,8 +107,8 @@ include('../../connection.php');
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
-          <a class="dropdown-item" href="../admin/user/list.php">All Users</a>
-          <a class="dropdown-item" href="../admin/user/create.php">Add User</a>
+          <a class="dropdown-item" href="#" disable>All Users</a>
+          <a class="dropdown-item" href="./create.php">Add User</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -267,21 +267,21 @@ include('../../connection.php');
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Page level plugin JavaScript-->
-  <script src="vendor/datatables/jquery.dataTables.js"></script>
-  <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+  <script src="../vendor/datatables/jquery.dataTables.js"></script>
+  <script src="../vendor/datatables/dataTables.bootstrap4.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin.min.js"></script>
+  <script src="../js/sb-admin.min.js"></script>
 
   <!-- Demo scripts for this page-->
-  <script src="js/demo/datatables-demo.js"></script>
+  <script src="../js/demo/datatables-demo.js"></script>
 
 </body>
 

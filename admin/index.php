@@ -112,14 +112,14 @@ require "./session.php";
           <a class="dropdown-item" href="../admin/user/create.php">Add User</a>
         </div>
       </li>
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown" aria-labelledby="pagesDropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
           <span>Menus</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="../admin/user/list.php">All Menus</a>
-          <a class="dropdown-item" href="../admin/user/create.php">Add Menu</a>
+          <a class="dropdown-item" href="../admin/menu/list.php">All Menus</a>
+          <a class="dropdown-item" href="../admin/menu/create.php">Add Menu</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -128,8 +128,8 @@ require "./session.php";
           <span>Categories</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="../admin/user/list.php">All Categories</a>
-          <a class="dropdown-item" href="../admin/user/create.php">Add Category</a>
+          <a class="dropdown-item" href="../admin/category/list.php">All Categories</a>
+          <a class="dropdown-item" href="../admin/category/create.php">Add Category</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -138,8 +138,8 @@ require "./session.php";
           <span>Pages</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="../admin/user/list.php">All Pages</a>
-          <a class="dropdown-item" href="../admin/user/create.php">Add Page</a>
+          <a class="dropdown-item" href="../admin/page/list.php">All Pages</a>
+          <a class="dropdown-item" href="../admin/page/create.php">Add Page</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -148,8 +148,8 @@ require "./session.php";
           <span>Post</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="../admin/user/list.php">All Posts</a>
-          <a class="dropdown-item" href="../admin/user/create.php">Add Post</a>
+          <a class="dropdown-item" href="../admin/post/list.php">All Posts</a>
+          <a class="dropdown-item" href="../admin/post/create.php">Add Post</a>
         </div>
       </li>
     </ul>

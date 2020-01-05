@@ -31,7 +31,7 @@ include('../../connection.php');
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="../index.php">Zoo - Admin</a>
+    <a class="navbar-brand mr-1" href="../index.php">Zoo - Admin - Page</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
@@ -107,17 +107,18 @@ include('../../connection.php');
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
-          <a class="dropdown-item" href="../admin/user/list.php">All Users</a>
-          <a class="dropdown-item" href="../admin/user/create.php">Add User</a>
+          <a class="dropdown-item" href="../../admin/user/list.php">All Users</a>
+          <a class="dropdown-item" href="../../admin/user/create.php">Add User</a>
         </div>
-        <li class="nav-item dropdown">
+      </li>
+      <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
           <span>Menus</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="../../admin/user/list.php">All Menus</a>
-          <a class="dropdown-item" href="../../admin/user/create.php">Add Menu</a>
+          <a class="dropdown-item" href="../menu/list.php">All Menus</a>
+          <a class="dropdown-item" href="../menu/create.php">Add Menu</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -126,8 +127,8 @@ include('../../connection.php');
           <span>Categories</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="../../admin/category/list.php">All Categories</a>
-          <a class="dropdown-item" href="../../admin/category/create.php">Add Category</a>
+          <a class="dropdown-item" href="../category/list.php">All Categories</a>
+          <a class="dropdown-item" href="../category/create.php">Add Category</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -136,8 +137,8 @@ include('../../connection.php');
           <span>Pages</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="../../admin/page/list.php">All Pages</a>
-          <a class="dropdown-item" href="../../admin/page/create.php">Add Page</a>
+          <a class="dropdown-item" href="#">All Pages</a>
+          <a class="dropdown-item" href="./create.php">Add Page</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -146,8 +147,8 @@ include('../../connection.php');
           <span>Post</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="../admin/post/list.php">All Posts</a>
-          <a class="dropdown-item" href="../admin/post/create.php">Add Post</a>
+          <a class="dropdown-item" href="../post/list.php">All Posts</a>
+          <a class="dropdown-item" href="../post/create.php">Add Post</a>
         </div>
       </li>
     </ul>
@@ -162,7 +163,6 @@ include('../../connection.php');
             <a href="../index.php">Dashboard</a>
           </li>
           <li class="breadcrumb-item active">Users</li>
-          <li class="breadcrumb-item active">View</li>
         </ol>
 
         <!-- DataTables Example -->
@@ -172,39 +172,49 @@ include('../../connection.php');
             Data Table Example</div>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-bordered" width="100%" cellspacing="0">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
-                    <th>Username</th>
-                    <th>Action</th>
+                      <th>STT</th>
+                      <th>Category</th>
+                      <th>Title</th>
+                      <th>Image</th>
+                      <th>Datetime</th>
+                      <th>User</th>
+                      <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                <?php
-                    if(isset($_GET["id"]) && $_GET["id"] > 0) {
-                        $conn = conn_db();
-                        $id = $_GET["id"];
-                        $sql = "SELECT * FROM users WHERE user_id = $id";
-                        //mysqli_set_charset($conn, "utf8");
-                        $result = mysqli_query($conn, $sql);
-                        if (mysqli_num_rows($result) > 0) {
-                            while ($row = mysqli_fetch_assoc($result)) {
-                            ?>
+                  <?php
+                      $conn = conn_db();
+                      $sql = "SELECT * FROM content left join users on content.user_id = users.user_id
+                                                    left join category on content.cate_id = category.id WHERE category.parent_id = 0 ORDER BY date_post DESC";
+                      $result = mysqli_query($conn, $sql);
+                      if (mysqli_num_rows($result) > 0) {
+                          $i = 1;
+                          while ($row = mysqli_fetch_assoc($result)) {
+                  ?>
 
-                        <tr class="text-center">
-                            <td><?= $row['username'] ?></td>
-                            <td>
-                                <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./edit.php?id={$row['user_id']}" ?>" target="_blank"> Edit </a></button>
-                                <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./delete.php?id={$row['user_id']}" ?>" target="_blank"> Delete </a></button>
-                            </td>
-                        </tr>
-                        <?php
-                        }
+                  <tr>
+                      <td><?php echo $i++  ?></td>
+                      <td><?= $row['cate_name'] ?></td>
+                      <td><?= $row['title'] ?></td>
+                      <td><?php echo "<img style='width:120px;' src='../uploads/".$row['img_id']."'>"; ?></td>
+                      <td><?= $row['date_post'] ?></td>
+                      <td><?= $row['username'] ?></td>
+                      <td>
+                          <a href="<?="./view.php?id={$row['content_id']}" ?>" target="_blank"> View </a> ||
+                          <a href="<?="./edit.php?id={$row['content_id']}" ?>" target="_blank"> Edit </a> ||
+                          <a href="<?="./delete.php?id={$row['content_id']}" ?>" target="_blank"> Delete </a>
+                      </td>
+                  </tr>
+
+                    <?php
                     }
-                    mysqli_close($conn);
-                }
-                ?>
-                </tbody>
+                  }
+                  mysqli_close($conn);
+              ?>
+                    </tbody>
               </table>
             </div>
           </div>
@@ -222,7 +232,7 @@ include('../../connection.php');
       <footer class="sticky-footer">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-              <span>Copyright © <a href="#">Zoo</a> 2020. </span>All rights reserved
+            <span>Copyright © <a href="#">Zoo</a> 2020. </span>All rights reserved
           </div>
         </div>
       </footer>
