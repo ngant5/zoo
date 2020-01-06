@@ -1,6 +1,8 @@
 <?php
 session_start();
-// require "../session.php";
+if(empty($_SESSION['user'])) {
+  header("Location: http://localhost/zoo/admin/login.php");
+}
 require "../../connection.php";
 
 $conn = conn_db();

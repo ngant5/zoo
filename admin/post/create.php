@@ -1,6 +1,8 @@
 <?php
     session_start();
-    include('../session.php');
+    if(empty($_SESSION['user'])) {
+      header("Location: http://localhost/zoo/admin/login.php");
+    }
     include('../../connection.php');
     $conn = conn_db();
     $category = $title = $detail = "";

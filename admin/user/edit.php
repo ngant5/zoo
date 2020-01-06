@@ -1,5 +1,11 @@
 <?php
 session_start();
+if(empty($_SESSION['user'])) {
+  header("Location: http://localhost/zoo/admin/login.php");
+}
+if ($_SESSION['user']["role"] == 2) {
+  header("Location: http://localhost/zoo/admin/dashboard.php");
+}
 include('../../connection.php');
 $conn = conn_db();
 $sql_msg = "";

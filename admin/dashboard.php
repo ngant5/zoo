@@ -3,8 +3,9 @@ session_start();
 if(empty($_SESSION['user'])) {
   header("Location: http://localhost/zoo/admin/login.php");
 }
-include('../../connection.php');
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,16 +17,16 @@ include('../../connection.php');
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Zoo Admin - Post</title>
+  <title>Zoo - Dashboard</title>
 
   <!-- Custom fonts for this template-->
-  <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
   <!-- Page level plugin CSS-->
-  <link href="../vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="../css/sb-admin.css" rel="stylesheet">
+  <link href="css/sb-admin.css" rel="stylesheet">
 
 </head>
 
@@ -33,7 +34,7 @@ include('../../connection.php');
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="../index.php">Zoo - Admin</a>
+    <a class="navbar-brand mr-1" href="index.php">Zoo - Admin</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
@@ -61,7 +62,7 @@ include('../../connection.php');
           <!-- <a class="dropdown-item" href="#">Settings</a>
           <a class="dropdown-item" href="#">Activity Log</a> -->
           
-          <a class="dropdown-item" href="../logout.php" data-toggle="modal" data-target="#logoutModal">Logout</a>
+          <a class="dropdown-item" href="../admin/logout.php" data-toggle="modal" data-target="#logoutModal">Logout</a>
         </div>
       </li>
     </ul>
@@ -72,31 +73,20 @@ include('../../connection.php');
 
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="../index.php">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span>
         </a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Users</span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <!-- <a class="dropdown-item" href="forgot-password.html">Forgot Password</a> -->
-          <a class="dropdown-item" href="../../admin/user/list.php">All Users</a>
-          <a class="dropdown-item" href="../../admin/user/create.php">Add User</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown" aria-labelledby="pagesDropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
           <span>Menus</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="../../admin/menu/list.php">All Menus</a>
-          <a class="dropdown-item" href="../../admin/menu/create.php">Add Menu</a>
+          <a class="dropdown-item" href="../admin/menu/list.php">All Menus</a>
+          <a class="dropdown-item" href="../admin/menu/create.php">Add Menu</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -105,8 +95,8 @@ include('../../connection.php');
           <span>Categories</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="../../category/list.php">All Categories</a>
-          <a class="dropdown-item" href="../../category/create.php">Add Category</a>
+          <a class="dropdown-item" href="../admin/category/list.php">All Categories</a>
+          <a class="dropdown-item" href="../admin/category/create.php">Add Category</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -115,8 +105,8 @@ include('../../connection.php');
           <span>Pages</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="../page/list.php">All Pages</a>
-          <a class="dropdown-item" href="../page/create.php">Add Page</a>
+          <a class="dropdown-item" href="../admin/page/list.php">All Pages</a>
+          <a class="dropdown-item" href="../admin/page/create.php">Add Page</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -125,8 +115,8 @@ include('../../connection.php');
           <span>Post</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="../../post/list.php">All Posts</a>
-          <a class="dropdown-item" href="../../post/create.php">Add Post</a>
+          <a class="dropdown-item" href="../admin/post/list.php">All Posts</a>
+          <a class="dropdown-item" href="../admin/post/create.php">Add Post</a>
         </div>
       </li>
     </ul>
@@ -138,72 +128,12 @@ include('../../connection.php');
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="../index.php">Dashboard</a>
+            <a href="#">Dashboard</a>
           </li>
-          <li class="breadcrumb-item active">Post</li>
+          <li class="breadcrumb-item active">Overview</li>
         </ol>
 
-        <!-- DataTables Example -->
-        <div class="card mb-3">
-          <div class="card-header">
-            <i class="fas fa-table"></i>
-            Data Table Example</div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered" width="100%" cellspacing="0">
-                <thead>
-                  <tr>
-                      <th>STT</th>
-                      <th>Category</th>
-                      <th>Title</th>
-                      <th>Image</th>
-                      <th>Datetime</th>
-                      <th>User</th>
-                      <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-                      $conn = conn_db();
-                      $row[] = '';
-                      $id = $_GET["id"];
-                      $sql = "SELECT * FROM content left join users on content.user_id = users.user_id
-                                                    left join category on content.cate_id = category.id WHERE content.content_id = {$id}";
-                      $result = mysqli_query($conn, $sql);
-                      if (mysqli_num_rows($result) > 0) {
-                          $i = 1;
-                          while ($row = mysqli_fetch_assoc($result)) {
-                  ?>
-
-                  <tr>
-                      <td><?php echo $i++  ?></td>
-                      <td><?= $row['cate_name'] ?></td>
-                      <td><?= $row['title'] ?></td>
-                      <td><?php echo "<img style='width:120px;' src='../uploads/".$row['img_id']."'>"; ?></td>
-                      <td><?= $row['date_post'] ?></td>
-                      <td><?= $row['username'] ?></td>
-                      <td>
-                        <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./edit.php?id={$row['content_id']}" ?>" target="_blank"> Edit </a></button>
-                        <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./delete.php?id={$row['content_id']}" ?>" target="_blank"> Delete </a></button>
-                          
-                      </td>
-                  </tr>
-
-                    <?php
-                    }
-                  }
-                  mysqli_close($conn);
-              ?>
-                    </tbody>
-              </table>
-            </div>
-          </div>
-          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-        </div>
-
-        <p class="small text-center text-muted my-5">
-          <em>More table examples coming soon...</em>
-        </p>
+        
 
       </div>
       <!-- /.container-fluid -->
@@ -241,28 +171,30 @@ include('../../connection.php');
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="../logout.php">Logout</a>
+          <a class="btn btn-primary" href="../admin/logout.php">Logout</a>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="../vendor/jquery/jquery.min.js"></script>
-  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Page level plugin JavaScript-->
-  <script src="../vendor/datatables/jquery.dataTables.js"></script>
-  <script src="../vendor/datatables/dataTables.bootstrap4.js"></script>
+  <script src="vendor/chart.js/Chart.min.js"></script>
+  <script src="vendor/datatables/jquery.dataTables.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="../js/sb-admin.min.js"></script>
+  <script src="js/sb-admin.min.js"></script>
 
   <!-- Demo scripts for this page-->
-  <script src="../js/demo/datatables-demo.js"></script>
+  <script src="js/demo/datatables-demo.js"></script>
+  <script src="js/demo/chart-area-demo.js"></script>
 
 </body>
 

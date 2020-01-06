@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 require "../connection.php";
 $user = $pass = $msg = "";
 
@@ -21,7 +20,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 'status' => $row['status']
             ];
             $_SESSION['user'] = $session_user;
+            if ($row['role_id'] == 1) {
             header("Location: http://localhost/zoo/admin/index.php");
+            } else if ($row['role_id'] == 2){
+              header("Location: http://localhost/zoo/admin/dashboard.php");
+            }else {
+              header("Location: http://localhost/zoo/admin/login.php");
+            }
         } else {
             $message = "Username and/or Password incorrect.\\nTry again.";
             echo "<script type='text/javascript'>alert('$message');</script>";

@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(empty($_SESSION['user'])) {
+  header("Location: http://localhost/zoo/admin/login.php");
+}
 include('../../connection.php');
 $conn = conn_db();
     if (isset($_GET['id']) && !empty($_GET['id'])) {

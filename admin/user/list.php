@@ -1,6 +1,11 @@
 <?php
 session_start();
-// include('../session.php');
+if(empty($_SESSION['user'])) {
+  header("Location: http://localhost/zoo/admin/login.php");
+}
+if ($_SESSION['user']["role"] == 2) {
+  header("Location: http://localhost/zoo/admin/dashboard.php");
+}
 include('../../connection.php');
 ?>
 <!DOCTYPE html>
@@ -51,39 +56,15 @@ include('../../connection.php');
 
     <!-- Navbar -->
     <ul class="navbar-nav ml-auto ml-md-0">
-      <li class="nav-item dropdown no-arrow mx-1">
-        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-bell fa-fw"></i>
-          <span class="badge badge-danger">9+</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown no-arrow mx-1">
-        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-envelope fa-fw"></i>
-          <span class="badge badge-danger">7</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
       <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-user-circle fa-fw"></i>
+          <i class="fas fa-user-circle fa-fw"></i><b><?=$_SESSION['user']['username']?></b>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-          <a class="dropdown-item" href="#">Settings</a>
-          <a class="dropdown-item" href="#">Activity Log</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+          <!-- <a class="dropdown-item" href="#">Settings</a>
+          <a class="dropdown-item" href="#">Activity Log</a> -->
+          
+          <a class="dropdown-item" href="../logout.php" data-toggle="modal" data-target="#logoutModal">Logout</a>
         </div>
       </li>
     </ul>
@@ -106,7 +87,7 @@ include('../../connection.php');
           <span>Users</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
+          <!-- <a class="dropdown-item" href="forgot-password.html">Forgot Password</a> -->
           <a class="dropdown-item" href="#" disable>All Users</a>
           <a class="dropdown-item" href="./create.php">Add User</a>
         </div>
@@ -199,7 +180,7 @@ include('../../connection.php');
                         ?>
 
                         <tr class="text-center">
-                            <td><?php echo $i++  ?></td>
+                            <td><?php echo $i++;  ?></td>
                             <td><?= $row['username'] ?></td>
                             <td>
                                 <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./view.php?id={$row['user_id']}" ?>" target="_blank"> View </button>

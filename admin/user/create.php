@@ -1,5 +1,11 @@
 <?php
 session_start();
+if(empty($_SESSION['user'])) {
+  header("Location: http://localhost/zoo/admin/login.php");
+}
+if ($_SESSION['user']["role"] == 2) {
+  header("Location: http://localhost/zoo/admin/dashboard.php");
+}
 include('../../connection.php');
 $sql_msg = "";
 $nameErr  = $passErr = "";
@@ -91,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </div> -->
             <button class="btn btn-primary" type="submit">Regiter</button>
-            <button class="btn btn-primary"><a class="text-white" href="./list.php?>">Cancel</a></button>
+            <button class="btn btn-primary"><a class="text-white" href="./list.php">Cancel</a></button>
         </form>
       <!-- </div> -->
             </div>
