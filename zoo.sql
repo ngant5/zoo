@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2020 at 10:54 AM
+-- Generation Time: Jan 06, 2020 at 03:43 PM
 -- Server version: 10.1.39-MariaDB
 -- PHP Version: 7.3.5
 
@@ -36,6 +36,16 @@ CREATE TABLE `category` (
   `status` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `cate_name`, `parent_id`, `user`, `status`) VALUES
+(1, 'Dinning && Leisure', 0, 14, 1),
+(3, 'KFC', 1, 14, 1),
+(4, 'Lotteria', 1, 14, 1),
+(2, 'Whats Up', 0, 14, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -64,6 +74,13 @@ CREATE TABLE `content` (
   `img_id` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
   `date_post` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `content`
+--
+
+INSERT INTO `content` (`content_id`, `title`, `detail`, `cate_id`, `user_id`, `img_id`, `date_post`) VALUES
+(1, 'KFC Post', 'KFC Post', 3, 14, 'kfc.png', '2020-01-06 21:42:50');
 
 -- --------------------------------------------------------
 
@@ -116,8 +133,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `role_id`, `status`) VALUES
-(15, 'admin', '', 2, 1),
-(14, 'super admin', '123', 1, 1);
+(15, 'admin', '202cb962ac59075b964b07152d234b70', 2, 1),
+(14, 'superadmin', '202cb962ac59075b964b07152d234b70', 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -171,7 +188,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `contact`
@@ -183,7 +200,7 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `content`
 --
 ALTER TABLE `content`
-  MODIFY `content_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `content_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `img`
