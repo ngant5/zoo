@@ -2,6 +2,15 @@
 session_start();
 // include('../session.php');
 include('../../connection.php');
+if(isset($_GET["id"]) && $_GET["id"] > 0) {
+  $conn = conn_db();
+  $row[] = '';
+  $id = $_GET["id"];
+  $sql = "SELECT * FROM category inner join users on category.user = users.user_id WHERE id = {$id}";
+  //mysqli_set_charset($conn, "utf8");
+  $result = mysqli_query($conn, $sql);
+  if (mysqli_num_rows($result) > 0) {
+      $row = mysqli_fetch_assoc($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +40,7 @@ include('../../connection.php');
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="../index.php">Zoo - Admin</a>
+    <a class="navbar-brand mr-1" href="../index.php">Zoo - Admin - Page</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
@@ -107,8 +116,8 @@ include('../../connection.php');
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
-          <a class="dropdown-item" href="#" disable>All Users</a>
-          <a class="dropdown-item" href="./create.php">Add User</a>
+          <a class="dropdown-item" href="../../admin/user/list.php">All Users</a>
+          <a class="dropdown-item" href="../../admin/user/create.php">Add User</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -137,8 +146,8 @@ include('../../connection.php');
           <span>Pages</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="../page/list.php">All Pages</a>
-          <a class="dropdown-item" href="../page/create.php">Add Page</a>
+          <a class="dropdown-item" href="#">All Pages</a>
+          <a class="dropdown-item" href="./create.php">Add Page</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -147,8 +156,8 @@ include('../../connection.php');
           <span>Post</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="../admin/post/list.php">All Posts</a>
-          <a class="dropdown-item" href="../admin/post/create.php">Add Post</a>
+          <a class="dropdown-item" href="../post/list.php">All Posts</a>
+          <a class="dropdown-item" href="../post/create.php">Add Post</a>
         </div>
       </li>
     </ul>
@@ -162,7 +171,7 @@ include('../../connection.php');
           <li class="breadcrumb-item">
             <a href="../index.php">Dashboard</a>
           </li>
-          <li class="breadcrumb-item active">Users</li>
+          <li class="breadcrumb-item active">Menu</li>
         </ol>
 
         <!-- DataTables Example -->
@@ -175,45 +184,30 @@ include('../../connection.php');
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
-                    <th>No</th>
-                    <th>Username</th>
+                    <th>ID</th>
+                    <th>Category Name</th>
+                    <th>User Name</th>
                     <th>Action</th>
                   </tr>
                 </thead>
-                <!-- <tfoot>
-                  <tr>
-                    <th>No.</th>
-                    <th>PosiUsernametion</th>
-                    <th>Action</th>
-                  </tr>
-                </tfoot> -->
                 <tbody>
-                <?php
-                    $conn = conn_db();
-                    $sql = "SELECT * FROM users WHERE status = 1";
-                    //mysqli_set_charset($conn, "utf8");
-                    $result = mysqli_query($conn, $sql);
-                    if (mysqli_num_rows($result) > 0) {
-                        $i = 1;
-                        while ($row = mysqli_fetch_assoc($result)) {
-                        ?>
-
-                        <tr class="text-center">
-                            <td><?php echo $i++  ?></td>
+                <tr>
+                            <td><?= $row['cate_name'] ?></td>
                             <td><?= $row['username'] ?></td>
                             <td>
-                                <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./view.php?id={$row['user_id']}" ?>" target="_blank"> View </button>
-                                 <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./edit.php?id={$row['user_id']}" ?>" target="_blank"> Edit </a></button>
-                                 <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./delete.php?id={$row['user_id']}" ?>" target="_blank"> Delete </a></button>
-
+                                <a href="<?="./view.php?id={$row['id']}" ?>" target="_blank"> View </a> ||
+                                <a href="<?="./edit.php?id={$row['id']}" ?>" target="_blank"> Edit </a> ||
+                                <a href="<?="./delete.php?id={$row['id']}" ?>" target="_blank"> Delete </a>
                             </td>
                         </tr>
                         <?php
-                        }
-                    }
-                    mysqli_close($conn);
-                ?>
-                </tbody>
+                                }
+                            } else {
+                                header("Location: http://localhost/wint_zoo/admin/menu/dashboard.php");
+                            }
+                            mysqli_close($conn);
+                        ?>
+              </tbody>
               </table>
             </div>
           </div>

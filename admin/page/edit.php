@@ -2,16 +2,15 @@
     session_start();
     include('../session.php');
     include('../../connection.php');
+    $conn = conn_db();
     $target_dir = $target_file = $image = "";
     $user_id = $_SESSION['user']["id"];
     $datetime = getdate();
     $sql_msg = "";
-    $msg = "";
     $query = "SELECT * FROM category WHERE parent_id = 0";
     $result = mysqli_query($conn, $query);
 
     if (isset($_GET['id']) && !empty($_GET['id'])) {
-        $conn = conn_db();
         $row[] = '';
         $category = $title = $detail = "";
         $categoryErr = $titleErr = $detailErr = "";
@@ -20,13 +19,16 @@
         $sql_msg = "";
         $query = "SELECT * FROM category WHERE parent_id = 0";
         $result_category = mysqli_query($conn, $query);
-
         $id = $_GET['id'];
         $sql_content = "SELECT * FROM content left join users on content.user_id = users.user_id
                                               left join category on content.cate_id = category.id WHERE content_id = $id";
         $result_content = mysqli_query($conn, $sql_content);
         if (mysqli_num_rows($result_content) == 1) {
             $row = mysqli_fetch_assoc($result_content);
+            $category = $row['cate_name'];
+            $detail = $row['detail'];
+            $detail = $row['detail'];
+            $image = $row['img_id'];
         }
     }
 
@@ -34,37 +36,35 @@
         if (isset($_POST["category"]) && !empty($_POST["category"])) {
             $category = $_POST["category"];
         } else {
-            $category = $row['cate_name'];
+            $categoryErr = "Category is required";
         }
         if (isset($_POST["title"]) && !empty($_POST["title"])) {
             $title = $_POST["title"];
         } else {
-            $title = $row['title'];
+            $titleErr = "Title is required";
         }
         if (isset($_POST["detail"]) && !empty($_POST["detail"])) {
             $detail = $_POST["detail"];
         } else {
-            $detail = $row['detail'];
+            $detail = "Detail is required";
         }
-        if (isset($_FILES['image'])) {
-            $target_dir = "../uploads/";
-            $target_file = $target_dir . basename($_FILES['image']['name']);
-            $image = $_FILES['image']['name'];
-        } else {
-            $image = $row['img_id'];
+        if(!empty($_FILES['image']['name'])) {
+            if (isset($_FILES['image'])) {
+                $target_dir = "../uploads/";
+                $target_file = $target_dir . basename($_FILES['image']['name']);
+                $image = $_FILES['image']['name'];
+                $img = move_uploaded_file($_FILES['image']['tmp_name'], $target_file);    
+            }
         }
         if (empty($categoryErr) && empty($titleErr) && empty($detailErr)) {
             $conn = conn_db();
             $sql = "UPDATE content SET content.title = '{$title}', content.detail = '{$detail}', content.cate_id = {$category}, content.user_id = {$user_id}, content.img_id = '{$image}' WHERE content_id = $id";
             mysqli_query($conn, $sql);
-            if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
-                    $last_id = mysqli_insert_id($conn);
-                    header("Location: http://localhost/zoo/admin/page/list.php");
+            header("Location: http://localhost/zoo/admin/page/list.php");
                 }
             } else {
                 echo "Add page fail";
             }
-    }
 ?>
 
 <!DOCTYPE html>
@@ -115,7 +115,7 @@
           <div class="form-row">
               <div class="col-md-12">
                 <div class="form-label-group">
-                    <input type="text" id="firstName" class="form-control" placeholder="First name" name="title" value="<?=$row['title']; ?>">
+                    <input type="text" id="firstName" class="form-control" name="title" value="<?=$row['title']; ?>">
                     <label for="firstName">Title</label>
                 </div>
                </div>
@@ -134,12 +134,12 @@
             <div class="form-row">
                 <div class="col-md-12">
                     <?php echo "<img style='width:120px;' src='../uploads/".$row['img_id']."'>"; ?>
-                    <input type="file" name="image" required="required">
+                    <input type="file" name="image">
                 </div>
             </div>
         </div>
             <button class="btn btn-primary" type="submit">OK</button>
-            <button class="btn btn-primary"><a class="text-white" href="./list.php?>">Cancel</a></button>
+            <button class="btn btn-primary"><a class="text-white" href="./list.php">Cancel</a></button>
         </form>
       <!-- </div> -->
             </div>
