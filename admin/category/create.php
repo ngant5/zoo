@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('../../connection.php');
+include('../../admin/session.php');
 $conn = conn_db();
     $query = "SELECT * FROM category WHERE parent_id = 0";
     $result = mysqli_query($conn, $query);

@@ -1,6 +1,9 @@
 <?php
 session_start();
-// include('../session.php');
+if(empty($_SESSION['user'])) {
+  header("Location: http://localhost/zoo/admin/login.php");
+} 
+
 include('../../connection.php');
 $conn = conn_db();
 $sql = "SELECT * FROM category inner join users on category.user = users.user_id WHERE parent_id != 0 && category.status = 1";
@@ -257,7 +260,7 @@ if (mysqli_num_rows($result) > 0) {
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <a class="btn btn-primary" href="../logout.php">Logout</a>
         </div>
       </div>
     </div>

@@ -23,10 +23,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $_SESSION['user'] = $session_user;
             header("Location: http://localhost/zoo/admin/index.php");
         } else {
-            $msg = "The username or password is incorrect";
+            $message = "Username and/or Password incorrect.\\nTry again.";
+            echo "<script type='text/javascript'>alert('$message');</script>";
         }
     } else {
-        $msg = "The username or password is incorrect";
+        $message = "Username and/or Password incorrect.\\nTry again.";
+        echo "<script type='text/javascript'>alert('$message');</script>";
     }
     mysqli_close($conn);
 }
@@ -73,15 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
               <label for="inputPassword">Password</label>
             </div>
           </div>
-          <div class="form-group">
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" value="remember-me">
-                Remember Password
-              </label>
-            </div>
-          </div>
-          <button class="btn btn-primary btn-block">Login</button>
+          <button class="btn btn-primary">Login</button>
         </form>
         <div class="text-center">
           <!-- <a class="d-block small mt-3" href="register.html">Register an Account</a> -->
