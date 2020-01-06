@@ -7,7 +7,7 @@
     $user_id = $_SESSION['user']["id"];
     $datetime = getdate();
     $sql_msg = "";
-    $query = "SELECT * FROM category WHERE parent_id = 0";
+    $query = "SELECT * FROM category WHERE parent_id != 0";
     $result = mysqli_query($conn, $query);
 
     if (isset($_GET['id']) && !empty($_GET['id'])) {
@@ -17,11 +17,14 @@
         $target_dir = $target_file = $image = "";
         $user_id = $_SESSION['user']["id"];
         $sql_msg = "";
-        $query = "SELECT * FROM category WHERE parent_id = 0";
+        $query = "SELECT * FROM category WHERE parent_id != 0";
+        
         $result_category = mysqli_query($conn, $query);
         $id = $_GET['id'];
         $sql_content = "SELECT * FROM content left join users on content.user_id = users.user_id
                                               left join category on content.cate_id = category.id WHERE content_id = $id";
+        
+        //$sql_content = "SELECT * FROM content WHERE content_id = $id";
         $result_content = mysqli_query($conn, $sql_content);
         if (mysqli_num_rows($result_content) == 1) {
             $row = mysqli_fetch_assoc($result_content);
@@ -60,7 +63,7 @@
             $conn = conn_db();
             $sql = "UPDATE content SET content.title = '{$title}', content.detail = '{$detail}', content.cate_id = {$category}, content.user_id = {$user_id}, content.img_id = '{$image}' WHERE content_id = $id";
             mysqli_query($conn, $sql);
-            header("Location: http://localhost/zoo/admin/page/list.php");
+            header("Location: http://localhost/zoo/admin/post/list.php");
                 }
                 else {
                     echo "Add page fail";

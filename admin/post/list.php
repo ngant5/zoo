@@ -14,11 +14,10 @@ include('../../connection.php');
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Zoo Admin - Page</title>
+  <title>Zoo Admin - Post</title>
 
   <!-- Custom fonts for this template-->
   <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  
   <!-- Page level plugin CSS-->
   <link href="../vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
@@ -137,8 +136,8 @@ include('../../connection.php');
           <span>Pages</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="#">All Pages</a>
-          <a class="dropdown-item" href="./create.php">Add Page</a>
+          <a class="dropdown-item" href="../page/list.php">All Pages</a>
+          <a class="dropdown-item" href="../page/create.php">Add Page</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -162,7 +161,7 @@ include('../../connection.php');
           <li class="breadcrumb-item">
             <a href="../index.php">Dashboard</a>
           </li>
-          <li class="breadcrumb-item active">Page</li>
+          <li class="breadcrumb-item active">Post</li>
         </ol>
 
         <!-- DataTables Example -->
@@ -188,7 +187,7 @@ include('../../connection.php');
                   <?php
                       $conn = conn_db();
                       $sql = "SELECT * FROM content left join users on content.user_id = users.user_id
-                                                    left join category on content.cate_id = category.id WHERE category.parent_id = 0 ORDER BY date_post DESC";
+                                                    left join category on content.cate_id = category.id WHERE category.parent_id != 0 ORDER BY date_post DESC";
                       $result = mysqli_query($conn, $sql);
                       if (mysqli_num_rows($result) > 0) {
                           $i = 1;
@@ -196,7 +195,7 @@ include('../../connection.php');
                   ?>
 
                   <tr>
-                      <td><?php echo $i++  ?></td>
+                      <td><?php echo $i++;  ?></td>
                       <td><?= $row['cate_name'] ?></td>
                       <td><?= $row['title'] ?></td>
                       <td><?php echo "<img style='width:120px;' src='../uploads/".$row['img_id']."'>"; ?></td>
@@ -206,7 +205,6 @@ include('../../connection.php');
                         <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./view.php?id={$row['content_id']}" ?>" target="_blank"> View </a></button>
                         <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./edit.php?id={$row['content_id']}" ?>" target="_blank"> Edit </a></button>
                         <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./delete.php?id={$row['content_id']}" ?>" target="_blank"> Delete </a></button>
-                          
                       </td>
                   </tr>
 

@@ -38,7 +38,7 @@ $conn = conn_db();
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title> Admin - User - Register</title>
+  <title> Admin - Menu</title>
 
   <!-- Custom fonts for this template-->
   <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -52,7 +52,7 @@ $conn = conn_db();
 
   <div class="container">
     <div class="card card-register mx-auto mt-5">
-      <div class="card-header">Register an Account</div>
+      <div class="card-header">Add Menu</div>
       <div class="card-body">
         
         <form method="post">

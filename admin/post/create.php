@@ -10,7 +10,7 @@
     $datetime = getdate();
     $sql_msg = "";
     $msg = "";
-    $query = "SELECT * FROM category WHERE parent_id = 0";
+    $query = "SELECT * FROM category WHERE parent_id != 0 && status = 1";
     $result = mysqli_query($conn, $query);
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (isset($_POST["category"]) && !empty($_POST["category"])) {
@@ -39,7 +39,7 @@
             if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
                     mysqli_query($conn, $sql);
                     $last_id = mysqli_insert_id($conn);
-                    header("Location: http://localhost/zoo/admin/page/list.php");
+                    header("Location: http://localhost/zoo/admin/post/list.php");
                     $sql_msg = "Add successed <a href='view.php/?id={$last_id}' target='_blank' >View</a>";
                 }
             } else {
@@ -59,7 +59,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title> Admin - Page</title>
+  <title> Admin - Post</title>
 
   <!-- Custom fonts for this template-->
   <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -73,7 +73,7 @@
 
   <div class="container">
     <div class="card card-register mx-auto mt-5">
-      <div class="card-header">Add Page</div>
+      <div class="card-header">Add Post</div>
       <div class="card-body">
         <form method="post" enctype="multipart/form-data">
           <div class="form-group">
@@ -120,7 +120,7 @@
             </div>
         </div>
             <button class="btn btn-primary" type="submit">OK</button>
-            <button class="btn btn-primary"><a class="text-white" href="./list.php?>">Cancel</a></button>
+            <button class="btn btn-primary"><a class="text-white" href="./list.php">Cancel</a></button>
         </form>
       <!-- </div> -->
             </div>

@@ -171,7 +171,7 @@ if(isset($_GET["id"]) && $_GET["id"] > 0) {
           <li class="breadcrumb-item">
             <a href="../index.php">Dashboard</a>
           </li>
-          <li class="breadcrumb-item active">Menu</li>
+          <li class="breadcrumb-item active">Category</li>
         </ol>
 
         <!-- DataTables Example -->
@@ -195,9 +195,9 @@ if(isset($_GET["id"]) && $_GET["id"] > 0) {
                             <td><?= $row['cate_name'] ?></td>
                             <td><?= $row['username'] ?></td>
                             <td>
-                                <a href="<?="./view.php?id={$row['id']}" ?>" target="_blank"> View </a> ||
-                                <a href="<?="./edit.php?id={$row['id']}" ?>" target="_blank"> Edit </a> ||
-                                <a href="<?="./delete.php?id={$row['id']}" ?>" target="_blank"> Delete </a>
+                              <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./edit.php?id={$row['id']}" ?>" target="_blank"> Edit </a></button>
+                              <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./delete.php?id={$row['id']}" ?>" target="_blank"> Delete </a></button>
+                              
                             </td>
                         </tr>
                         <?php

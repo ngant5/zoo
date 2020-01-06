@@ -14,7 +14,7 @@ include('../../connection.php');
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Zoo Admin - User</title>
+  <title>Zoo Admin - Page</title>
 
   <!-- Custom fonts for this template-->
   <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -147,8 +147,8 @@ include('../../connection.php');
           <span>Post</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="../../post/list.php">All Posts</a>
-          <a class="dropdown-item" href="../../post/create.php">Add Post</a>
+          <a class="dropdown-item" href="../../admin/post/list.php">All Posts</a>
+          <a class="dropdown-item" href="../../admin/post/create.php">Add Post</a>
         </div>
       </li>
     </ul>
@@ -205,9 +205,9 @@ include('../../connection.php');
                       <td><?= $row['date_post'] ?></td>
                       <td><?= $row['username'] ?></td>
                       <td>
-                          <a href="<?="./view.php?id={$row['content_id']}" ?>" target="_blank"> View </a> ||
-                          <a href="<?="./edit.php?id={$row['content_id']}" ?>" target="_blank"> Edit </a> ||
-                          <a href="<?="./delete.php?id={$row['content_id']}" ?>" target="_blank"> Delete </a>
+                          <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./edit.php?id={$row['content_id']}" ?>" target="_blank"> Edit </a></button>
+                          <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./delete.php?id={$row['content_id']}" ?>" target="_blank"> Delete </a></button>
+                          
                       </td>
                   </tr>
 

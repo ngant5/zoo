@@ -14,7 +14,7 @@ include('../../connection.php');
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Zoo Admin - User</title>
+  <title>Zoo Admin - Menu</title>
 
   <!-- Custom fonts for this template-->
   <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -198,10 +198,11 @@ include('../../connection.php');
                               <td><?= $row['cate_name'] ?></td>
                               <td><?= $row['username'] ?></td>
                               <td>
-                                  <a href="<?="./view.php?id={$row['id']}" ?>" target="_blank"> View </a> ||
-                                  <a href="<?="./edit.php?id={$row['id']}" ?>" target="_blank"> Edit </a> ||
-                                  <a href="<?="./delete.php?id={$row['id']}" ?>" target="_blank"> Delete </a>
-                              </td>
+                              <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./view.php?id={$row['id']}" ?>" target="_blank"> View </a></button>
+                              <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./edit.php?id={$row['id']}" ?>" target="_blank"> Edit </a></button>
+                              <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./delete.php?id={$row['id']}" ?>" target="_blank"> Delete </button>
+                          
+                          </td>
                           </tr>
 
                           <?php

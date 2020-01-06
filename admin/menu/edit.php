@@ -55,7 +55,7 @@ $conn = conn_db();
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title> Admin - User - Register</title>
+  <title> Admin - Menu</title>
 
   <!-- Custom fonts for this template-->
   <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -69,7 +69,7 @@ $conn = conn_db();
 
   <div class="container">
     <div class="card card-register mx-auto mt-5">
-      <div class="card-header">Register an Account</div>
+      <div class="card-header">Edit Menu</div>
       <div class="card-body">
         
         <form method="post" action="edit.php?id=<?=$row['id']?>">
@@ -83,7 +83,7 @@ $conn = conn_db();
                </div>
             </div>
           </div>
-            <button class="btn btn-primary" type="submit">Regiter</button>
+            <button class="btn btn-primary" type="submit">OK</button>
             <button class="btn btn-primary"><a class="text-white" href="./list.php?>">Cancel</a></button>
         </form>
       <!-- </div> -->

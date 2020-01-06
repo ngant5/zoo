@@ -46,7 +46,7 @@ $conn = conn_db();
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title> Admin - User - Register</title>
+  <title> Admin - Category</title>
 
   <!-- Custom fonts for this template-->
   <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -92,7 +92,7 @@ $conn = conn_db();
           </div>
           
             <button class="btn btn-primary" type="submit">OK</button>
-            <button class="btn btn-primary"><a class="text-white" href="./list.php?>">Cancel</a></button>
+            <button class="btn btn-primary"><a class="text-white" href="./list.php">Cancel</a></button>
         </form>
       <!-- </div> -->
             </div>

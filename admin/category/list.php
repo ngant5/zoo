@@ -24,7 +24,7 @@ if (mysqli_num_rows($result) > 0) {
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Zoo Admin - User</title>
+  <title>Zoo Admin - Category</title>
 
   <!-- Custom fonts for this template-->
   <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -172,7 +172,7 @@ if (mysqli_num_rows($result) > 0) {
           <li class="breadcrumb-item">
             <a href="../index.php">Dashboard</a>
           </li>
-          <li class="breadcrumb-item active">Menu</li>
+          <li class="breadcrumb-item active">Category</li>
         </ol>
 
         <!-- DataTables Example -->
@@ -201,9 +201,9 @@ if (mysqli_num_rows($result) > 0) {
                           <td><?= $value['cate_name'] ?></td>
                           <td><?= $value['username'] ?></td>
                           <td>
-                              <a href="<?="view.php?id={$value['id']}" ?>" target="_blank"> View </a> ||
-                              <a href="<?="./edit.php?id={$value['id']}" ?>" target="_blank"> Edit </a> ||
-                              <a href="<?="delete.php?id={$value['id']}" ?>" target="_blank"> Delete </a>
+                            <button class="btn btn-primary" type="button"><a class="text-white" href="<?="view.php?id={$value['id']}" ?>" target="_blank"> View </a></button>
+                            <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./edit.php?id={$value['id']}" ?>" target="_blank"> Edit </a></button>
+                            <button class="btn btn-primary" type="button"><a class="text-white" href="<?="delete.php?id={$value['id']}" ?>" target="_blank"> Delete </a></button>
                           </td>
                       </tr>
                     <?php endforeach;
