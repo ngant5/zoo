@@ -87,6 +87,8 @@ if(isset($_GET["id"]) && $_GET["id"] > 0) {
           <span>Dashboard</span>
         </a>
       </li>
+      <?php
+      if ($_SESSION['user']["role"] == 1) { ?>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
@@ -98,6 +100,11 @@ if(isset($_GET["id"]) && $_GET["id"] > 0) {
           <a class="dropdown-item" href="../../admin/user/create.php">Add User</a>
         </div>
       </li>
+      <?php
+      } else { 
+        echo "<li></li>";
+      }
+      ?>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
