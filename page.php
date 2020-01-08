@@ -1,48 +1,52 @@
 <?php
-include('../common/cm-header.php');
+include('./connection.php');
+include('./common/cm-header.php');
 ?>
-		<div class="banner-header">
-			<div class="container">
-				<h2>Services</h2>
-			</div>
-			</div>
+    <div class="banner-header">
+        <div class="container">
+            <h2>Services</h2>
+        </div>
+    </div>
 	<div class="content">
 	<!--services-->
 		<div class="services-section">
 			<div class="container">
-				<div class="services-grids">
+                <div class="services-grids">
+                <?php
+                    $conn = conn_db();
+                    $row[] = '';
+                    $id = $_GET["id"];
+                    $sql = "SELECT * FROM content left join category on content.cate_id = category.id WHERE category.id = {$id}";
+                    $result = mysqli_query($conn, $sql);
+                    if (mysqli_num_rows($result) > 0) {
+                        $i = 1;
+                        while ($row = mysqli_fetch_assoc($result)) {
+                ?>
 					<div class="col-md-3 services-grid">
-						<img src="images/s1.jpg" class="img-responsive" alt="" />
+						<img src="./admin/uploads/<?php echo $row['img_id']; ?>" class="img-responsive" alt="" />
 						<div class="services-info">
-						<h4>In faucibus</h4>
-						<p>This format perfectly fits in case you need only a single image for your post display. Use Featured image option…</p>
-						</div>
-						</div>
-						<div class="col-md-3 services-grid">
-							<img src="images/s2.jpg" class="img-responsive" alt="" />
-							<div class="services-info">
-								<h4>Malesuada</h4>
-								<p>This format perfectly fits in case you need only a single image for your post display. Use Featured image option…</p>
-							</div>
-						</div>
-						<div class="col-md-3 services-grid">
-							<img src="images/s3.jpg" class="img-responsive" alt="" />
-							<div class="services-info">
-								<h4>Sodales orci</h4>
-								<p>This format perfectly fits in case you need only a single image for your post display. Use Featured image option…</p>
-							</div>
-						</div>
-						<div class="col-md-3 services-grid">
-							<img src="images/s4.jpg" class="img-responsive" alt="" />
-							<div class="services-info">
-								<h4>Dayle Peters</h4>
-								<p>This format perfectly fits in case you need only a single image for your post display. Use Featured image option…</p>
-							</div>
-						</div>
+                            <h4><?= $row['title'] ?></h4>
+                            <?php
+                                if ($row['parent_id'] != 0) {
+                                    ?>
+                                    <button class="btn btn-info" id="view">Detail</button>
+                                    <p class="card-text" id="show" hidden><?= $row['detail'] ?></p>
+                                    <?php
+                                }
+                            ?>
+                            <p class="card-text" id="show" hidden><?= $row['detail'] ?></p>
+                            
+                        </div>
+                    </div>
+                    <?php
+                            }
+                        }
+                        mysqli_close($conn);
+                    ?>
 					<div class="clearfix"></div>
-					</div>
-				</div>
-			</div>
+                </div>
+            </div>
+        </div>
 		<!--services-->
 	<!--feature-->
 				<div class="feature">
@@ -112,14 +116,14 @@ include('../common/cm-header.php');
 						</div>
 					</div>
 				</div>
-			</div>
-			<!--footer-->
-			<div class="footer-section">
-				<div class="container">
-					<div class="footer-top">
-						<p>&copy; 2015 Zoo Planet . All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
-					</div>
-				</div>
-			</div>
-</body>
-</html>
+            </div>
+<?php
+    include('./common/cm-footer.php');
+?>
+<script>
+    $(document).ready(function(){
+        $("#view").click(function(){
+            $("#show").toggle();
+        });
+    });
+</script>

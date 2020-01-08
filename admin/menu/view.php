@@ -131,8 +131,8 @@ if(isset($_GET["id"]) && $_GET["id"] > 0) {
           <span>Pages</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="#">All Pages</a>
-          <a class="dropdown-item" href="./create.php">Add Page</a>
+          <a class="dropdown-item" href="../page/list.php">All Pages</a>
+          <a class="dropdown-item" href="../page/create.php">Add Page</a>
         </div>
       </li>
       <li class="nav-item dropdown">
