@@ -184,21 +184,6 @@
 		</div>
 	</div>
 </div>
-<!--map-->
-<div class="events">
-	<div class="container">
-		<h3>Zoo Map</h3>
-		<div class="events-grids">
-			<div class="col-md-2 event-grid"></div>
-			<div class="col-md-8 event-grid">
-				<a href="images/map.png" class="mask">
-				<img src="images/map.png" class="img-responsive zoom-img" alt=""></a>
-			</div>
-			<div class="col-md-2 event-grid"></div>
-			<div class="clearfix"></div>
-		</div>
-	</div>
-</div>
 <!--events-->
 <!--specials-->
 	

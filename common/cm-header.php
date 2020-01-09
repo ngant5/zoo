@@ -10,10 +10,9 @@
                     <a href="<?="http://localhost/zoo/page.php?id={$item["id"]}" ?>"><?=$item["cate_name"]?></a>
                     <?php
                         while (loop_array($array, $item['id'])) { ?>
-                        <li><a href="<?="http://localhost/zoo/page.php?id={$item["id"]}" ?>"><?=$item["cate_name"]?></a></li>
                     <?php
-                }
-                ?>
+                        }
+                    ?>
                 </li>
                 <?php
             }
@@ -49,21 +48,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/bootstrap.js"></script>
 <style>
     .navbar-nav li {
-        position: relative !important;
+        position: relative;
         display: inline-block !important;
+        
     }
     .navbar-nav li li {
         display: none !important;
-        position: absolute !important;
     }
     .navbar-nav li:hover li{
-        display: block !important;
+        display: inline-block !important;
+        position: relative !important;
+        clear: both;
     }
-    .navbar-nav li:hover li a{
-        margin-top: -20px  !important;
-        margin-left: -80px !important;
-    }
-
 </style>
 </head>
 <body>
@@ -100,8 +96,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
 </div><!-- /.container-fluid -->
                 </nav>
-
             </div>
         </div>
     </div>
-    
