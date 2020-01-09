@@ -90,11 +90,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <?php
-                            echo "<ul class='nav navbar-nav'><li><a href=>Business Opportunities</a></li></ul>";
-                            echo "<ul class='nav navbar-nav'><li><a href=>Park Infomation</a></li></ul>";
+                            echo "<ul class='nav navbar-nav'><li><a href=''>Business</a></li></ul>";
+                            echo "<ul class='nav navbar-nav'><li><a href=''>Info</a></li></ul>";
                             display_menu();
-                            echo "<ul class='nav navbar-nav'><li><a href=>Experience</a></li></ul>";
-                            echo "<ul class='nav navbar-nav'><li><a href=>Home</a></li></ul>";
+                            echo "<ul class='nav navbar-nav'><li><a href=''>Experience</a></li></ul>";
+                            echo "<ul class='nav navbar-nav'><li><a href=''>Home</a></li></ul>";
                             ?>
                         </ul>
                     </div>

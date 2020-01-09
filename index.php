@@ -99,33 +99,9 @@
 		</div>
 	</div>
 <!--welcome-->
-			<!--feature-->
-	<div class="feature">
-		<div class="container">
-			<h3>Our Features</h3>
-			<div class="feature-grids">
-					<div class="col-md-4 feature-grid">
-							<span class="glyphicon glyphicon-camera" aria-hidden="true"></span>
-							<h4>Earum Rerum</h4>
-							<p>Masagni dolores eoquie voluptate msequi nesciunt. Nique porro quisquam est qui dolorem ipsumquia dolor sitamet consectet, adipisci unumquam eius.</p>
-						</div>
-						<div class="col-md-4 feature-grid">
-							<span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span>
-							<h4>Itaque Earum</h4>
-							<p>Masagni dolores eoquie voluptate msequi nesciunt. Nique porro quisquam est qui dolorem ipsumquia dolor sitamet consectet, adipisci unumquam eius.</p>
-						</div>
-						<div class="col-md-4 feature-grid">
-							<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-							<h4>Assumenda est</h4>
-							<p>Masagni dolores eoquie voluptate msequi nesciunt. Nique porro quisquam est qui dolorem ipsumquia dolor sitamet consectet, adipisci unumquam eius.</p>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-		</div>
-	</div>
-	<!--feature-->
+			
 	<!--animals-->
-		<div class="animals">
+		<!-- <div class="animals">
 			<div class="container">
 				<h3>animals</h3>
 				<div class="clients">
@@ -171,7 +147,7 @@
 				<div class="clearfix"></div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 <!--models-->
 <!--testimonials-->
 <div class="testimonials">
@@ -181,50 +157,50 @@
 	</div>
 </div>
 <!--testimonials-->
-
-			<!--events-->
-				<div class="events">
-					<div class="container">
-						<h3>events</h3>
-						<div class="events-grids">
-							<div class="col-md-3 event-grid">
-								<a href="#" class="mask">
-								<img src="images/camp.jpg" class="img-responsive zoom-img" alt=""></a>
-							</div>
-							<div class="col-md-3 event-grid1">
-								<h4>Summer Camp</h4>
-								<h5>Registration Opens January 22, 2020!</h5>
-								<p>Create a welcoming, fun and safe camp experience for all</p>
-							</div>
-							<div class="col-md-3 event-grid">
-								<a href="#" class="mask">
-									<img src="images/birthday-parties.jpg" class="img-responsive zoom-img" alt=""></a>
-							</div>
-							<div class="col-md-3 event-grid1">
-								<h4>Birthday Parties</h4>
-								<h5>Anytime</h5>
-								<p>The Zoo Planet offers two varieties of Birthday parties: A "Choose your Own Adventure" package and a more inclusive "Birthday Safari". </p>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-				<div class="events">
-					<div class="container">
-						<h3>Zoo Map</h3>
-						<div class="events-grids">
-							<div class="col-md-2 event-grid"></div>
-							<div class="col-md-8 event-grid">
-								<a href="images/map.png" class="mask">
-								<img src="images/map.png" class="img-responsive zoom-img" alt=""></a>
-							</div>
-							<div class="col-md-2 event-grid"></div>
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-			<!--events-->
-			<!--specials-->
+<!--events-->
+<div class="events">
+	<div class="container">
+		<h3>events</h3>
+		<div class="events-grids">
+			<div class="col-md-3 event-grid">
+				<a href="#" class="mask">
+				<img src="images/camp.jpg" class="img-responsive zoom-img" alt=""></a>
+			</div>
+			<div class="col-md-3 event-grid1">
+				<h4>Summer Camp</h4>
+				<h5>Registration Opens January 22, 2020!</h5>
+				<p>Create a welcoming, fun and safe camp experience for all</p>
+			</div>
+			<div class="col-md-3 event-grid">
+				<a href="#" class="mask">
+					<img src="images/birthday-parties.jpg" class="img-responsive zoom-img" alt=""></a>
+			</div>
+			<div class="col-md-3 event-grid1">
+				<h4>Birthday Parties</h4>
+				<h5>Anytime</h5>
+				<p>The Zoo Planet offers two varieties of Birthday parties: A "Choose your Own Adventure" package and a more inclusive "Birthday Safari". </p>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<!--map-->
+<div class="events">
+	<div class="container">
+		<h3>Zoo Map</h3>
+		<div class="events-grids">
+			<div class="col-md-2 event-grid"></div>
+			<div class="col-md-8 event-grid">
+				<a href="images/map.png" class="mask">
+				<img src="images/map.png" class="img-responsive zoom-img" alt=""></a>
+			</div>
+			<div class="col-md-2 event-grid"></div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<!--events-->
+<!--specials-->
 	
 
 <?php
