@@ -2,20 +2,25 @@
 	include ("./connection.php");
 	include('./common/cm-header.php');
 ?>
+
+<style>
+	.head-banner h3 {
+
+	}
+</style>
 <div class="header-banner">
         <div class="container">
             <div class="head-banner">
-                <h3>Dave Zucconi Conservation Center</h3>
-                <p>Donec dui velit, hendrerit id pharetra nec, posuere porta nisl. Donec magna nulla, commodo in ultrices faucibus lacus aliquet.Donec dui velit, hendrerit id pharetra nec</p>
+                <h3>You've Never Been This Close!</h3>
             </div>
             <div class="banner-grids">
                 <div class="col-md-6 banner-grid">
-                    <h4>Vestibulum sagittis</h4>
-                    <p>Donec dui velit, hendrerit id pharetra nec, posuere porta nisl. Donec magna nulla, commodo in ultrices faucibus lacus aliquet.</p>
+                    <h4>OUR WORK</h4>
+                    <p>We’re proud of our successful history saving animals, from toads to bison. Learn what our scientists are currently up to.</p>
                 </div>
                 <div class="col-md-6 banner-grid">
-                <h4>Itaque Earum Rerum</h4>
-                    <p>Donec dui velit, hendrerit id pharetra nec, posuere porta nisl. Donec magna nulla, commodo in ultrices faucibus lacus aliquet.</p>
+                <h4>KIDS PROGRAMS</h4>
+					<p>There’s always an adventure waiting for you at the Zoo Planet! Check out the fun, educational activities we have in store for you. More nature. More wildlife. More fun!</p>
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -31,29 +36,62 @@
 					<div class="col-md-3 welcome-grid">
 						<img src="images/p1.jpg" alt=" " class="img-responsive" />
 						<div class="wel-info">
-							<h4>Assumenda est</h4>
-							<p>Masagni dolores eoquie voluptate msequi nesciunt. Nique porro quisquam est qui dolorem ipsumquia dolor sitamet consectet, adipisci unumquam eius.</p>
+							<h4>BONOBO</h4>
+							<p> </p>
+							<button class="btn btn-info" id="view1">Detail</button>
+								<p class="card-text" id="show1" hidden>
+									Bonobos are quite possibly the most intelligent primates on Earth (other than us, of course!). 
+									The Zoo Planet was one of the first zoos to exhibit these highly endangered primates.
+									One characteristic bonobos are especially known for is their ability to get along: unlike humans or chimpanzees, they have never been observed killing one of their own kind. 
+									These clever apes are fun to watch. 
+									Their exhibit is dominated by giant rock outcroppings, and ropes and hammocks attached to bamboo sway poles, on which the playful bonobos nimbly climb or rest. 
+									Waterfalls and streams add to the African rain forest atmosphere. 
+									But the real show is the bonobos themselves—do they remind you of anyone?
+								</p>
 						</div>
 					</div>
 					<div class="col-md-3 welcome-grid">
 						<img src="images/p2.jpg" alt=" " class="img-responsive" />
 						<div class="wel-info">
-							<h4>Assumenda est</h4>
-							<p>Masagni dolores eoquie voluptate msequi nesciunt. Nique porro quisquam est qui dolorem ipsumquia dolor sitamet consectet, adipisci unumquam eius.</p>
+							<h4>REPTILE MESA</h4>
+							<p> </p>
+							<button class="btn btn-info" id="view2">Detail</button>
+								<p class="card-text" id="show2" hidden>
+									Reptile Mesa has all kinds of exotic-looking plants (including, appropriately, dragon trees!) from all kinds of exotic locations. 
+									The task of maintaining a varied plant collection while creating natural habitats for the animal residents can be challenging. 
+									For example, in the green iguana exhibit on Reptile Mesa, the evergreen shrub, Xylosma sp., was selected because it is not a particularly flavorful plant from an iguana's point of view—so, the lizards would not consume it as fast as we planted it, which can often occur. 
+									Moreover, this plant is sturdy enough to allow these large-bodied lizards, which can weigh up to 8 or 10 pounds (3 to 5 kilograms), to bask on top of them.
+								</p>
 						</div>
 					</div>
 					<div class="col-md-3 welcome-grid">
 						<img src="images/p3.jpg" alt=" " class="img-responsive" />
 						<div class="wel-info">
-							<h4>Assumenda est</h4>
-							<p>Masagni dolores eoquie voluptate msequi nesciunt. Nique porro quisquam est qui dolorem ipsumquia dolor sitamet consectet, adipisci unumquam eius.</p>
+							<h4>BEE-EATER</h4>
+							<p> </p>
+							<button class="btn btn-info" id="view3">Detail</button>
+								<p class="card-text" id="show3" hidden>
+									The harpy eagle is legendary, although few people have seen one in the wild. Fortunately, you can view one here at the Zoo! 
+									Named after harpies of Greek mythology, this dark gray bird of prey has a very distinctive look, with feathers atop its head that fan into a bold crest when the bird feels threatened. 
+									Some smaller gray feathers create a facial disk that may focus sound waves to improve the bird’s hearing, similar to owls. 
+									The harpy eagle's legs can be as thick as a small child's wrist, and its curved back talons are larger than grizzly bear claws! 
+									The harpy may not be the largest bird of prey (that title belongs to the Andean condor), but this extraordinary creature is the heaviest and most powerful of birds. 
+								</p>
 						</div>
 					</div>
 					<div class="col-md-3 welcome-grid">
 						<img src="images/p4.jpg" alt=" " class="img-responsive" />
 						<div class="wel-info">
-							<h4>Assumenda est</h4>
-							<p>Masagni dolores eoquie voluptate msequi nesciunt. Nique porro quisquam est qui dolorem ipsumquia dolor sitamet consectet, adipisci unumquam eius.</p>
+							<h4>ELEPHANT</h4>
+							<p> </p>
+							<button class="btn btn-info" id="view4">Detail</button>
+								<p class="card-text" id="show4" hidden>
+									At first glance, African elephants look similar to Asian elephants, but they are different species that live in different parts of the world.
+									Yet in Elephant Odyssey, you can see both species! How to tell them apart? African elephants have very large ears that are shaped like the continent of Africa, while Asian elephants have smaller ears. 
+									Also, an Asian elephant's back is rounded, but an African elephant's back has a dip or sway in it. 
+									A wonderful feature of Elephant Odyssey is our Elephant Care Center, where you may watch keepers scrubbing an elephant’s foot or observe a training session. 
+									It’s a great place to chat with our keepers, too. Be sure to check out the life-size statues of wooly mammoths for some great photo ops!
+								</p>
 						</div>
 					</div>
 					<div class="clearfix"></div>
@@ -105,24 +143,23 @@
 					</ul>
 						<script type="text/javascript">
 					$(window).load(function() {
-						
 						$("#flexiselDemo3").flexisel({
 							visibleItems: 5,
 							animationSpeed: 1000,
 							autoPlay: true,
-							autoPlaySpeed: 3000,    		
+							autoPlaySpeed: 3000,
 							pauseOnHover: true,
 							enableResponsiveBreakpoints: true,
-							responsiveBreakpoints: { 
-								portrait: { 
+							responsiveBreakpoints: {
+								portrait: {
 									changePoint:480,
 									visibleItems: 1
 								}, 
-								landscape: { 
+								landscape: {
 									changePoint:640,
 									visibleItems: 2
 								},
-								tablet: { 
+								tablet: {
 									changePoint:768,
 									visibleItems: 3
 								}
@@ -139,9 +176,8 @@
 <!--testimonials-->
 <div class="testimonials">
 	<div class="container">
-		<h3>testimonials</h3>
-		<p>Aenean nonummy hendrerit mau phasellu porta. Fusce suscipit varius mi sed. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio morbi. Ut viverra mauris justo, quis auctor nisi. Suspendisse sit amet diam diam, eget volutpat lacus. Vestibulum faucibus scelerisque nisl vitae scelerisque. Sed tristique metus eu…</p>
-		<h4><a href="#">John Anderson</a></h4>
+			<h3>Honestly I have to say the Zoo Planet is one of the best zoos I've ever been to!</h3>
+		<h4><a href="#">Anuj Kacker</a></h4>
 	</div>
 </div>
 <!--testimonials-->
@@ -151,74 +187,47 @@
 					<div class="container">
 						<h3>events</h3>
 						<div class="events-grids">
-								<div class="col-md-3 event-grid">
-									<a href="#" class="mask">
-									<img src="images/e1.jpg" class="img-responsive zoom-img" alt=""></a>
-								</div>
-								<div class="col-md-3 event-grid1">
-									<h4>Mauris non magna ul </h4>
-									<h5>19-aug-2015</h5>
-									<p>Fusce feugiat malesuada odio. Morbi orci. Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris fermentum dictum magna.</p>
-								</div>
-								<div class="col-md-3 event-grid">
-									<a href="#" class="mask">
-										<img src="images/e2.jpg" class="img-responsive zoom-img" alt=""></a>
-								</div>
-								<div class="col-md-3 event-grid1">
-									<h4>Mauris non magna ul </h4>
-									<h5>25-sep-2014</h5>
-									<p>Fusce feugiat malesuada odio. Morbi orci. Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris fermentum dictum magna.</p>
-								</div>
+							<div class="col-md-3 event-grid">
+								<a href="#" class="mask">
+								<img src="images/camp.jpg" class="img-responsive zoom-img" alt=""></a>
+							</div>
+							<div class="col-md-3 event-grid1">
+								<h4>Summer Camp</h4>
+								<h5>Registration Opens January 22, 2020!</h5>
+								<p>Create a welcoming, fun and safe camp experience for all</p>
+							</div>
+							<div class="col-md-3 event-grid">
+								<a href="#" class="mask">
+									<img src="images/birthday-parties.jpg" class="img-responsive zoom-img" alt=""></a>
+							</div>
+							<div class="col-md-3 event-grid1">
+								<h4>Birthday Parties</h4>
+								<h5>Anytime</h5>
+								<p>The Zoo Planet offers two varieties of Birthday parties: A "Choose your Own Adventure" package and a more inclusive "Birthday Safari". </p>
+							</div>
 							<div class="clearfix"></div>
+						</div>
 					</div>
 				</div>
+				<div class="events">
+					<div class="container">
+						<h3>Zoo Map</h3>
+						<div class="events-grids">
+							<div class="col-md-2 event-grid"></div>
+							<div class="col-md-8 event-grid">
+								<a href="images/map.png" class="mask">
+								<img src="images/map.png" class="img-responsive zoom-img" alt=""></a>
+							</div>
+							<div class="col-md-2 event-grid"></div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
 				</div>
 			<!--events-->
 			<!--specials-->
-	<div class="specials-section">
-		<div class="container">
-			<div class="specials-grids">
-				<div class="col-md-3 specials1">
-					<h3>timings</h3>
-						<p>10:30 Am - 10:45 Am Dino Chat</p>
-						<p>11:00 Am - 11:15 Am Panda</p>
-						<p>11:30 Am - 12:00 PM Farm Chat</p>
-						<p>12:00 Pm - 01:00 Pm Feeding</p>
-				</div>
-				<div class="col-md-3 specials1">
-					<h3> details</h3>
-					<ul>
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="#">Privacy Policy</a></li>
-						<li><a href="#">Terms & Conditions</a></li>
-						<li><a href="contact.html">SiteMap</a></li>
-					</ul>
-				</div>
-				<div class="col-md-3 specials1">
-					<h3>contact</h3>
-					<address>
-						<p>The Company Name Inc.</p>
-						<p>Glasgow,Le 99 Pr 45.</p>
-						<p>Telephone : +1 800 603 6035</p>
-						<p>FAX : +1 800 889 9898</p>
-						<p>Email : <a href="mailto:example@mail.com">example@mail.com</a></p>
-					</address>
-				</div>
-				<div class="col-md-3 specials1">
-					<h3>social</h3>
-					<ul>
-						<li><a href="#">facebook</a></li>
-						<li><a href="#">twitter</a></li>
-						<li><a href="#">google+</a></li>
-						<li><a href="#">vimeo</a></li>
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-	</div>
-</div>
+	
 
 <?php
 	include('./common/cm-footer.php');
 ?>
+<script src="./js/script.js"></script>

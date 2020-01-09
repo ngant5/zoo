@@ -2,6 +2,7 @@
 include('./connection.php');
 include('./common/cm-header.php');
 ?>
+	
     <div class="banner-header">
         <div class="container">
             <h2>Services</h2>
@@ -35,7 +36,6 @@ include('./common/cm-header.php');
                                 }
                             ?>
                             <p class="card-text" id="show" hidden><?= $row['detail'] ?></p>
-                            
                         </div>
                     </div>
                     <?php
@@ -120,10 +120,11 @@ include('./common/cm-header.php');
 <?php
     include('./common/cm-footer.php');
 ?>
-<script>
-    $(document).ready(function(){
-        $("#view").click(function(){
-            $("#show").toggle();
-        });
-    });
-</script>
+<script src="./js/script.js"></script>
+<!-- <script>
+    // $(document).ready(function(){
+    //     $("#view").click(function(){
+    //         $("#show").toggle();
+    //     });
+    // });
+</script> -->

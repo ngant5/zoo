@@ -59,7 +59,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     .navbar-nav li:hover li{
         display: block !important;
     }
-    .navbar-nav li:hover li a{ 
+    .navbar-nav li:hover li a{
         margin-top: -20px  !important;
         margin-left: -80px !important;
     }
@@ -75,38 +75,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="container-fluid">
 <!-- Brand and toggle get grouped for better mobile display -->
                         <div class="navbar-header">
-                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
                             <div class="navbar-brand">
-                                <h1><a href="index.html">zoo planet</a></h1>
+                                <h1><a href="index.php">zoo planet</a></h1>
                             </div>
                         </div>
 
 <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">     
-                            <?php display_menu(); ?>   
-                        </ul> 
-                    </div>
-                    
-                            
-                    <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gallery <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="gallery.html">Gallery1</a></li>
-                                    <li><a href="gallery.html">Gallery2</a></li>
-                                    <li><a href="gallery.html">Gallery3</a></li>
-                                </ul>
-                            </li>
+                            <?php
+                            echo "<ul class='nav navbar-nav'><li><a href=>Business Opportunities</a></li></ul>";
+                            echo "<ul class='nav navbar-nav'><li><a href=>Park Infomation</a></li></ul>";
+                            display_menu();
+                            echo "<ul class='nav navbar-nav'><li><a href=>Experience</a></li></ul>";
+                            echo "<ul class='nav navbar-nav'><li><a href=>Home</a></li></ul>";
+                            ?>
                         </ul>
-                    </div> -->
-                    <!-- /.navbar-collapse -->
+                    </div>
 </div><!-- /.container-fluid -->
                 </nav>
 
