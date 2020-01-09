@@ -87,7 +87,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <ul class="nav navbar-nav">
                             <?php
                             echo "<ul class='nav navbar-nav'><li><a href=''>Business</a></li></ul>";
-                            echo "<ul class='nav navbar-nav'><li><a href=''>Info</a></li></ul>";
+                            echo "<ul class='nav navbar-nav'><li><a href='http://localhost/zoo/info.php'>Info</a></li></ul>";
                             display_menu();
                             echo "<ul class='nav navbar-nav'><li><a href='http://localhost/zoo/experience.php'>Experience</a></li></ul>";
                             echo "<ul class='nav navbar-nav'><li><a href=''>Home</a></li></ul>";
