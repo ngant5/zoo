@@ -4,7 +4,7 @@
 ?>
 <div class="banner-header">
     <div class="container">
-        <h2>about</h2>
+        
     </div>
 </div>
 <!--about-->
