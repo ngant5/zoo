@@ -163,8 +163,10 @@ if(isset($_GET["id"]) && $_GET["id"] > 0) {
         <!-- DataTables Example -->
         <div class="card mb-3">
           <div class="card-header">
-            <i class="fas fa-table"></i>
-            Data Table Example</div>
+          <button class="btn btn-primary mb-2" type="button">
+              <i class="fa fa-plus" aria-hidden="true"> </i><a class="text-white" href="./create.php"> Add</a>
+            </button>
+            </div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -178,20 +180,22 @@ if(isset($_GET["id"]) && $_GET["id"] > 0) {
                 </thead>
                 <tbody>
                 <tr>
-                            <td><?= $row['cate_name'] ?></td>
-                            <td><?= $row['username'] ?></td>
-                            <td>
-                              <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./edit.php?id={$row['id']}" ?>" target="_blank"> Edit </a></button>
-                              <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./delete.php?id={$row['id']}" ?>" target="_blank"> Delete </a></button>
-                            </td>
-                        </tr>
-                        <?php
-                                }
-                            } else {
-                                header("Location: http://localhost/wint_zoo/admin/menu/dashboard.php");
-                            }
-                            mysqli_close($conn);
-                        ?>
+                  <td><?= $row['cate_name'] ?></td>
+                  <td><?= $row['username'] ?></td>
+                  <td>
+                    <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./edit.php?id={$row['id']}" ?>" target="_blank"> Edit </a></button>
+                    <button class="btn btn-danger" type="button"><a class="text-white" href="<?="./delete.php?id={$row['id']}" ?>" target="_blank" onclick="return confirm('Are you sure you want to delete this item?');"> Delete </a></button>
+                    
+
+                  </td>
+              </tr>
+              <?php
+                      }
+                  } else {
+                      header("Location: http://localhost/wint_zoo/admin/menu/dashboard.php");
+                  }
+                  mysqli_close($conn);
+              ?>
               </tbody>
               </table>
             </div>

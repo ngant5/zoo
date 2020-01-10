@@ -177,7 +177,7 @@ include('../../connection.php');
                             <td><?= $row['username'] ?></td>
                             <td>
                                 <button class="btn btn-primary" type="button"><a class="text-white" href="<?="../change-password.php?id={$row['user_id']}" ?>" target="_blank"> Change Password </a></button>
-                                <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./delete.php?id={$row['user_id']}" ?>" target="_blank"> Delete </a></button>
+                                <button class="btn btn-danger" type="button"><a class="text-white" href="<?="./delete.php?id={$row['user_id']}" ?>" target="_blank"> Delete </a></button>
                             </td>
                         </tr>
                         <?php

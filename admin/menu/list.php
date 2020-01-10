@@ -155,8 +155,9 @@ include('../../connection.php');
         <!-- DataTables Example -->
         <div class="card mb-3">
           <div class="card-header">
-            <i class="fas fa-table"></i>
-            Data Table Example</div>
+          <button class="btn btn-primary mb-2" type="button">
+              <i class="fa fa-plus" aria-hidden="true"> </i><a class="text-white" href="./create.php"> Add</a>
+            </button></div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -187,7 +188,7 @@ include('../../connection.php');
                               <td>
                               <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./view.php?id={$row['id']}" ?>" target="_blank"> View </a></button>
                               <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./edit.php?id={$row['id']}" ?>" target="_blank"> Edit </a></button>
-                              <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./delete.php?id={$row['id']}" ?>" target="_blank"> Delete </button>
+                              <button class="btn btn-danger" type="button"><a class="text-white" href="<?="./delete.php?id={$row['id']}" ?>" target="_blank" onclick="return confirm('Are you sure you want to delete this item?');"> Delete </button>
                           
                           </td>
                           </tr>
