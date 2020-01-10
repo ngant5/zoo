@@ -14,7 +14,7 @@
 					
 						<p>The Zoo Planet Inc.</p>
 						<p>24 Phan Liem, Da Kao Ward, District 1, Ho Chi Minh City, Vietnam</p>
-						<p>Telephone : 1800 1779</p>
+						<p>Telephone : +84 1800 1779</p>
 						<p>Email : <a href="mailto:zoo-planet@gmail.com">zoo-planet@gmail.com</a></p>
 					</address>
 				</div>
