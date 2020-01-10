@@ -3,6 +3,10 @@ session_start();
 if(empty($_SESSION['user'])) {
   header("Location: http://localhost/zoo/admin/login.php");
 }
+if ($_SESSION['user']["role"] == 2) {
+  header("Location: http://localhost/zoo/admin/dashboard.php");
+}
+$id = $_SESSION['user']['id'];
 ?>
 
 <!DOCTYPE html>
@@ -60,7 +64,7 @@ if(empty($_SESSION['user'])) {
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
           <!-- <a class="dropdown-item" href="#">Settings</a>
           <a class="dropdown-item" href="#">Activity Log</a> -->
-          
+          <a class="dropdown-item" href="./change-password.php?id=<?=$id?>">Change password</a>
           <a class="dropdown-item" href="../admin/logout.php" data-toggle="modal" data-target="#logoutModal">Logout</a>
         </div>
       </li>

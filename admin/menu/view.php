@@ -4,6 +4,7 @@ if(empty($_SESSION['user'])) {
   header("Location: http://localhost/zoo/admin/login.php");
 }
 include('../../connection.php');
+$id = $_SESSION['user']['id'];
 if(isset($_GET["id"]) && $_GET["id"] > 0) {
   $conn = conn_db();
   $row[] = '';
@@ -69,7 +70,7 @@ if(isset($_GET["id"]) && $_GET["id"] > 0) {
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
           <!-- <a class="dropdown-item" href="#">Settings</a>
           <a class="dropdown-item" href="#">Activity Log</a> -->
-          
+          <a class="dropdown-item" href="../change-password.php?id=<?=$id?>">Change password</a>
           <a class="dropdown-item" href="../logout.php" data-toggle="modal" data-target="#logoutModal">Logout</a>
         </div>
       </li>

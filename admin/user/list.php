@@ -6,6 +6,7 @@ if(empty($_SESSION['user'])) {
 if ($_SESSION['user']["role"] == 2) {
   header("Location: http://localhost/zoo/admin/dashboard.php");
 }
+$id = $_SESSION['user']['id'];
 include('../../connection.php');
 ?>
 <!DOCTYPE html>
@@ -63,7 +64,7 @@ include('../../connection.php');
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
           <!-- <a class="dropdown-item" href="#">Settings</a>
           <a class="dropdown-item" href="#">Activity Log</a> -->
-          
+          <a class="dropdown-item" href="../change-password.php?id=<?=$id?>">Change password</a>
           <a class="dropdown-item" href="../logout.php" data-toggle="modal" data-target="#logoutModal">Logout</a>
         </div>
       </li>
@@ -184,9 +185,8 @@ include('../../connection.php');
                             <td><?= $row['username'] ?></td>
                             <td>
                                 <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./view.php?id={$row['user_id']}" ?>" target="_blank"> View </button>
-                                 <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./edit.php?id={$row['user_id']}" ?>" target="_blank"> Edit </a></button>
-                                 <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./delete.php?id={$row['user_id']}" ?>" target="_blank"> Delete </a></button>
-
+                                <button class="btn btn-primary" type="button"><a class="text-white" href="<?="../change-password.php?id={$row['user_id']}" ?>" target="_blank"> Change Password </a></button>
+                                <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./delete.php?id={$row['user_id']}" ?>" target="_blank"> Delete </a></button>
                             </td>
                         </tr>
                         <?php
