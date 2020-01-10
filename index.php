@@ -40,12 +40,12 @@
 							<p> </p>
 							<button class="btn btn-info" id="view1">Detail</button>
 								<p class="card-text" id="show1" hidden>
-									Bonobos are quite possibly the most intelligent primates on Earth (other than us, of course!). 
+									Bonobos are quite possibly the most intelligent primates on Earth (other than us, of course!).
 									The Zoo Planet was one of the first zoos to exhibit these highly endangered primates.
 									One characteristic bonobos are especially known for is their ability to get along: unlike humans or chimpanzees, they have never been observed killing one of their own kind. 
-									These clever apes are fun to watch. 
+									These clever apes are fun to watch.
 									Their exhibit is dominated by giant rock outcroppings, and ropes and hammocks attached to bamboo sway poles, on which the playful bonobos nimbly climb or rest. 
-									Waterfalls and streams add to the African rain forest atmosphere. 
+									Waterfalls and streams add to the African rain forest atmosphere.
 									But the real show is the bonobos themselves—do they remind you of anyone?
 								</p>
 						</div>
@@ -57,8 +57,8 @@
 							<p> </p>
 							<button class="btn btn-info" id="view2">Detail</button>
 								<p class="card-text" id="show2" hidden>
-									Reptile Mesa has all kinds of exotic-looking plants (including, appropriately, dragon trees!) from all kinds of exotic locations. 
-									The task of maintaining a varied plant collection while creating natural habitats for the animal residents can be challenging. 
+									Reptile Mesa has all kinds of exotic-looking plants (including, appropriately, dragon trees!) from all kinds of exotic locations.
+									The task of maintaining a varied plant collection while creating natural habitats for the animal residents can be challenging.
 									For example, in the green iguana exhibit on Reptile Mesa, the evergreen shrub, Xylosma sp., was selected because it is not a particularly flavorful plant from an iguana's point of view—so, the lizards would not consume it as fast as we planted it, which can often occur. 
 									Moreover, this plant is sturdy enough to allow these large-bodied lizards, which can weigh up to 8 or 10 pounds (3 to 5 kilograms), to bask on top of them.
 								</p>

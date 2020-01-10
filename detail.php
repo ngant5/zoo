@@ -4,7 +4,6 @@ include('./common/cm-header.php');
 ?>
 <div class="banner-header">
 	<div class="container">
-		<h2>Services</h2>
 	</div>
 </div>
 <div class="content">

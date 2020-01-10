@@ -7,7 +7,7 @@
             foreach($array[$parent_id] as $item) {
                 ?>
                 <li >
-                    <a href="<?="http://localhost/zoo/page.php?id={$item["id"]}" ?>"><?=$item["cate_name"]?></a>
+                    <a href="<?="http://localhost/zoo/page.php?id={$item['id']}&parent_id={$item['parent_id']}" ?>"><?=$item["cate_name"]?></a>
                     <?php
                         while (loop_array($array, $item['id'])) { ?>
                     <?php
