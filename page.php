@@ -20,15 +20,27 @@ include('./common/cm-header.php');
 				$result = mysqli_query($conn, $sql);
 				if (mysqli_num_rows($result) > 0) {
 					while ($row = mysqli_fetch_assoc($result)) {
+						if ($row['parent_id'] == 0) {
+							?>
+							<div class="col-md-5 welcome-grid">
+								<img style="height: 300px;" src="./admin/uploads/<?php echo $row['img_id']; ?>" class="img-responsive" alt="" />
+								<div class="wel-info">
+									<h4><?=$row['title'] ?></a></h4>
+									<p class="card-text"><i><?=$row['detail'] ?></i></p>
+								</div>
+							</div>
+							<?php
+						} else {
 			?>
-				<div class="col-md-5 welcome-grid">
-					<img style="height: 300px;" src="./admin/uploads/<?php echo $row['img_id']; ?>" class="img-responsive" alt="" />
-					<div>
-							<button class="wel-info" type="button"><h4><a href="<?="http://localhost/zoo/detail.php?id={$row['content_id']}" ?>"><?=$row['title'] ?></a></h4></button>
-					</div>
-				</div>
+						<div class="col-md-5 welcome-grid">
+							<img style="height: 300px;" src="./admin/uploads/<?php echo $row['img_id']; ?>" class="img-responsive" alt="" />
+							<div>
+								<button class="wel-info" type="button"><h4><a href="<?="http://localhost/zoo/detail.php?id={$row['content_id']}" ?>"><?=$row['title'] ?></a></h4></button>
+							</div>
+						</div>
 				<?php
 						}
+					}
 				}
 				?>
 				<div class="clear-fix"></div>

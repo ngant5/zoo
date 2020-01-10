@@ -16,7 +16,6 @@ include('./common/cm-header.php');
 				$conn = conn_db();
 				$row[] = '';
                 $id = $_GET["id"];
-                
 				$sql = "SELECT * FROM content WHERE content_id = {$id}";
 				$result = mysqli_query($conn, $sql);
 				if (mysqli_num_rows($result) > 0) {
@@ -33,7 +32,6 @@ include('./common/cm-header.php');
 						}
 				}
 				?>
-                
 			</div>
 		</div>
 	</div>

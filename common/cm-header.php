@@ -92,7 +92,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             echo "<ul class='nav navbar-nav'><li><a href='http://localhost/zoo/about-us.php'>Aubout Us</a></li></ul>";
                             display_menu();
                             echo "<ul class='nav navbar-nav'><li><a href='http://localhost/zoo/experience.php'>Experience</a></li></ul>";
-                            echo "<ul class='nav navbar-nav'><li><a href=''>Home</a></li></ul>";
+                            echo "<ul class='nav navbar-nav'><li><a href='http://localhost/zoo/index.php'>Home</a></li></ul>";
                             ?>
                         </ul>
                     </div>
