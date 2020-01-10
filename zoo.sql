@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2020 at 03:43 PM
+-- Generation Time: Jan 10, 2020 at 01:57 PM
 -- Server version: 10.1.39-MariaDB
 -- PHP Version: 7.3.5
 
@@ -41,23 +41,11 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `cate_name`, `parent_id`, `user`, `status`) VALUES
-(1, 'Dinning && Leisure', 0, 14, 1),
-(3, 'KFC', 1, 14, 1),
-(4, 'Lotteria', 1, 14, 1),
-(2, 'Whats Up', 0, 14, 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `contact`
---
-
-CREATE TABLE `contact` (
-  `contact_id` int(11) NOT NULL,
-  `contact_content` text COLLATE utf8_unicode_ci,
-  `email` text COLLATE utf8_unicode_ci,
-  `status` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+(1, 'Characters', 0, 2, 0),
+(2, 'Leisure & Dinning', 0, 2, 1),
+(3, 'Whats Up', 0, 2, 1),
+(4, 'Leisure', 2, 2, 0),
+(5, 'Dinning', 2, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -80,19 +68,11 @@ CREATE TABLE `content` (
 --
 
 INSERT INTO `content` (`content_id`, `title`, `detail`, `cate_id`, `user_id`, `img_id`, `date_post`) VALUES
-(1, 'KFC Post', 'KFC Post', 3, 14, 'kfc.png', '2020-01-06 21:42:50');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `img`
---
-
-CREATE TABLE `img` (
-  `img_id` int(11) NOT NULL,
-  `url` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `content_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+(1, 'ELEPHANT', 'At first glance, African elephants look similar to Asian elephants, but they are different species that live in different parts of the world. Yet in Elephant Odyssey, you can see both species! How to tell them apart? African elephants have very large ears that are shaped like the continent of Africa, while Asian elephants have smaller ears. Also, an Asian elephant back is rounded, but an African elephant back has a dip or sway in it. A wonderful feature of Elephant Odyssey is our Elephant Care Center, where you may watch keepers scrubbing an elephant foot or observe a training session. It a great place to chat with our keepers, too. Be sure to check out the life-size statues of wooly mammoths for some great photo ops!', 1, 1, 'elephant.jpg', '2020-01-10 15:00:14'),
+(2, 'BEE-EATER', 'The harpy eagle is legendary, although few people have seen one in the wild. Fortunately, you can view one here at the Zoo! Named after harpies of Greek mythology, this dark gray bird of prey has a very distinctive look, with feathers atop its head that fan into a bold crest when the bird feels threatened. Some smaller gray feathers create a facial disk that may focus sound waves to improve the bird hearing, similar to owls. The harpy eagle legs can be as thick as a small child wrist, and its curved back talons are larger than grizzly bear claws! The harpy may not be the largest bird of prey (that title belongs to the Andean condor), but this extraordinary creature is the heaviest and most powerful of birds.', 1, 1, 'bee-eater.jpg', '2020-01-10 15:01:03'),
+(3, 'BONONO', 'Bonobos are quite possibly the most intelligent primates on Earth (other than us, of course!). The Zoo Planet was one of the first zoos to exhibit these highly endangered primates. One characteristic bonobos are especially known for is their ability to get along: unlike humans or chimpanzees, they have never been observed killing one of their own kind. These clever apes are fun to watch. Their exhibit is dominated by giant rock outcroppings, and ropes and hammocks attached to bamboo sway poles, on which the playful bonobos nimbly climb or rest. Waterfalls and streams add to the African rain forest atmosphere. But the real show is the bonobos themselves—do they remind you of anyone?', 1, 1, 'bonono.jpg', '2020-01-10 15:05:06'),
+(4, 'KFC', 'All of our food is freshly prepared in our restaurants using only the highest quality ingredients. Enjoy a delicious KFC meal today. There something for everyone!', 5, 1, 'kfc.png', '2020-01-10 15:08:34'),
+(5, 'Lotteria', 'Lotteria is a chain of fast-food restaurants in East Asia that grew out of its first shop in Tokyo, Japan in September 1972. Taking its name from its parent company, Lotte Corporation, it currently has franchises in Japan, South Korea, Indonesia, Vietnam, Cambodia and Myanmar.[1] The origin of the name is a combination of corporate names Lotte and Cafe', 5, 2, 'lotteria.jpg', '2020-01-10 15:09:20');
 
 -- --------------------------------------------------------
 
@@ -133,8 +113,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `role_id`, `status`) VALUES
-(15, 'admin', '202cb962ac59075b964b07152d234b70', 2, 1),
-(14, 'superadmin', '202cb962ac59075b964b07152d234b70', 1, 1);
+(2, 'admin', '202cb962ac59075b964b07152d234b70', 2, 1),
+(3, 'nga', '25f9e794323b453885f5181f1b624d0b', 2, 1),
+(1, 'superadmin', '202cb962ac59075b964b07152d234b70', 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -144,27 +125,17 @@ INSERT INTO `users` (`user_id`, `username`, `password`, `role_id`, `status`) VAL
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
-  ADD PRIMARY KEY (`cate_name`),
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `cate_name` (`cate_name`),
   ADD KEY `cate_id` (`id`);
-
---
--- Indexes for table `contact`
---
-ALTER TABLE `contact`
-  ADD PRIMARY KEY (`contact_id`);
 
 --
 -- Indexes for table `content`
 --
 ALTER TABLE `content`
   ADD PRIMARY KEY (`content_id`),
-  ADD KEY `user_id` (`user_id`);
-
---
--- Indexes for table `img`
---
-ALTER TABLE `img`
-  ADD KEY `img_id` (`img_id`);
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `cate_id` (`cate_id`);
 
 --
 -- Indexes for table `role`
@@ -188,25 +159,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `contact`
---
-ALTER TABLE `contact`
-  MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `content`
 --
 ALTER TABLE `content`
-  MODIFY `content_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `img`
---
-ALTER TABLE `img`
-  MODIFY `img_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `content_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `role`
@@ -218,7 +177,7 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
@@ -228,7 +187,8 @@ ALTER TABLE `users`
 -- Constraints for table `content`
 --
 ALTER TABLE `content`
-  ADD CONSTRAINT `content_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+  ADD CONSTRAINT `content_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
+  ADD CONSTRAINT `content_ibfk_2` FOREIGN KEY (`cate_id`) REFERENCES `category` (`id`);
 
 --
 -- Constraints for table `users`
