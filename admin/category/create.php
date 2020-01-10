@@ -1,11 +1,11 @@
 <?php
-session_start();
-if(empty($_SESSION['user'])) {
-  header("Location: http://localhost/zoo/admin/login.php");
-}
-include('../../connection.php');
-include('../../admin/session.php');
-$conn = conn_db();
+    session_start();
+    if(empty($_SESSION['user'])) {
+    header("Location: http://localhost/zoo/admin/login.php");
+    }
+    include('../../connection.php');
+    include('../../admin/session.php');
+    $conn = conn_db();
     $query = "SELECT * FROM category WHERE parent_id = 0";
     $result = mysqli_query($conn, $query);
     $parentErr = $cateNameErr = "";
@@ -24,9 +24,8 @@ $conn = conn_db();
             $cateNameErr = "Category Name is required";
         }
         if (empty($parentErr) && empty($cateNameErr)) {
-            $conn = conn_db();
             $sql = "INSERT INTO category (cate_name, parent_id, user)
-            VALUES ('{$categoryName}', '{$parentId}', '{$user_id}')";
+            VALUES ('{$categoryName}', {$parentId}, {$user_id})";
             if (mysqli_query($conn, $sql)) {
                 $last_id = mysqli_insert_id($conn);
                 header("Location: http://localhost/zoo/admin/category/list.php");

@@ -22,7 +22,7 @@
     }
     function display_menu() {
         $conn = conn_db();
-        $sql = "SELECT * FROM category";
+        $sql = "SELECT * FROM category WHERE category.status = 1";
         $query = mysqli_query($conn, $sql);
         $array = array();
         if (mysqli_num_rows($query)) {
