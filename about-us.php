@@ -88,7 +88,7 @@
 			var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
 			var infowindow = new google.maps.InfoWindow({
-				content: '<div id="content"><a href="http://localhost/zoo/index.php">WINT ZOO</a> <br/> 24 Phan Liem, Da Kao Ward, District 1, Ho Chi Minh City, Vietnam</div>',
+				content: '<div id="content"><a href="http://localhost/zoo/index.php">THE ZOO PLANET</a> <br/> 24 Phan Liem, Da Kao Ward, District 1, Ho Chi Minh City, Vietnam</div>',
 				position: myLatlng
 			});
 
