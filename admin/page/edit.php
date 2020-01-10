@@ -55,7 +55,7 @@
                 $target_dir = "../uploads/";
                 $target_file = $target_dir . basename($_FILES['image']['name']);
                 $image = $_FILES['image']['name'];
-                $img = move_uploaded_file($_FILES['image']['tmp_name'], $target_file);    
+                $img = move_uploaded_file($_FILES['image']['tmp_name'], $target_file);
             }
         }
         if (empty($categoryErr) && empty($titleErr) && empty($detailErr)) {
@@ -66,7 +66,7 @@
                 }
                 else {
                     echo "Add page fail";
-            } 
+            }
         }
 ?>
 

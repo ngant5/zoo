@@ -37,18 +37,16 @@ if(empty($_SESSION['user'])) {
             $image = $_FILES['image']['name'];
         }
         if (empty($categoryErr) && empty($titleErr) && empty($detailErr)) {
+            mysqli_set_charset($conn, 'UTF8');
             $sql = "INSERT INTO content (title, detail, cate_id, user_id, img_id)
             VALUES ('{$title}', '{$detail}', {$category}, {$user_id}, '{$image}')";
-            if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
-                    mysqli_query($conn, $sql);
-                    $last_id = mysqli_insert_id($conn);
-                    header("Location: http://localhost/zoo/admin/page/list.php");
-                    $sql_msg = "Add successed <a href='view.php/?id={$last_id}' target='_blank' >View</a>";
-                }
-            } else {
+            move_uploaded_file($_FILES['image']['tmp_name'], $target_file);
+            mysqli_query($conn, $sql);
+            header("Location: http://localhost/zoo/admin/page/list.php");
+                } else {
                 echo "Add page fail";
             }
-    }
+        }
 ?>
 
 <!DOCTYPE html>
