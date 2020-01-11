@@ -50,10 +50,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     .navbar-nav li {
         position: relative;
         display: inline-block !important;
-        
     }
     .navbar-nav li li {
         display: none !important;
+    }
+    .navbar-nav li li a{
+        padding: 2px  !important;
     }
     .navbar-nav li:hover li{
         display: inline-block !important;

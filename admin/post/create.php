@@ -12,8 +12,28 @@
     $datetime = getdate();
     $sql_msg = "";
     $msg = "";
-    $query = "SELECT * FROM category WHERE parent_id != 0 && status = 1";
-    $result = mysqli_query($conn, $query);
+    function loop_array($array = array(), $parent_id = 0) {
+            foreach($array[$parent_id] as $item) {
+            ?>
+                <option value="<?=$item['id']?>"><?=$item['cate_name']?></option>
+            <?php
+                while (loop_array($array, $item['id'])) {
+                }
+            }
+        }
+    function display_menu() {
+        $conn = conn_db();
+        $sql = "SELECT * FROM category WHERE category.status = 1";
+        $query = mysqli_query($conn, $sql);
+        $array = array();
+        if (mysqli_num_rows($query)) {
+            while ($row = mysqli_fetch_array($query)) {
+                $array[$row['parent_id']][] = $row;
+            }
+            loop_array($array);
+        }
+    }
+    
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (isset($_POST["category"]) && !empty($_POST["category"])) {
             $category = $_POST["category"];
@@ -81,16 +101,9 @@
           <div class="form-group">
             <div class="form-row">
             <div class="col-md-12">
-                <select  class="col-md-12 form-control" name="category" required="required" autofocus="autofocus">
-                    <?php
-                    echo "<option value='$id'>Select category</option>";
-                        while($row = mysqli_fetch_assoc($result)) {
-                            $id = $row['id'];
-                            $parent_name = $row['cate_name'];
-                            echo "<option value='$id'>$parent_name</option>";
-                        }
-                        mysqli_close($conn);
-                    ?>
+                <select class="col-md-12 form-control" name="category" required="required" autofocus="autofocus">
+                    <option selected='true' disabled='disabled'>Select category</option>
+                    <?php display_menu(); ?>
                 </select>
             </div>
             </div>

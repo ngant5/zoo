@@ -92,7 +92,7 @@ include('../../connection.php');
         </div>
       </li>
       <?php
-      } else { 
+      } else {
         echo "<li></li>";
       }
       ?>
@@ -163,7 +163,8 @@ include('../../connection.php');
                 <thead>
                   <tr>
                       <th>STT</th>
-                      <th>Category</th>
+                      <th>Main-Category</th>
+                      <th>Sub-Category</th>
                       <th>Title</th>
                       <th>Image</th>
                       <th>Datetime</th>
@@ -175,16 +176,28 @@ include('../../connection.php');
                   <?php
                       $conn = conn_db();
                       $sql = "SELECT * FROM content left join users on content.user_id = users.user_id
-                                                    left join category on content.cate_id = category.id WHERE category.parent_id != 0 ORDER BY date_post DESC";
+                                                    left join category on content.cate_id = category.id ORDER BY date_post DESC";
                       $result = mysqli_query($conn, $sql);
                       if (mysqli_num_rows($result) > 0) {
                           $i = 1;
                           while ($row = mysqli_fetch_assoc($result)) {
+                            if ($row['parent_id'] == 0) {
+                              $main_cate = $row['cate_name'];
+                              $sub_cate = "-";
+                            } else {
+                              $id = $row['parent_id'];
+                              $sql_id = "SELECT * FROM category WHERE id = $id";
+                              $res = mysqli_query($conn, $sql_id);
+                              $_category = mysqli_fetch_assoc($res);
+                              $main_cate = $_category['cate_name'];
+                              $sub_cate = $row['cate_name'];
+                            }
                   ?>
 
                   <tr>
                       <td><?php echo $i++;  ?></td>
-                      <td><?= $row['cate_name'] ?></td>
+                      <td><?= $main_cate?></td>
+                      <td><?= $sub_cate?></td>
                       <td><?= $row['title'] ?></td>
                       <td><?php echo "<img style='width:120px;' src='../uploads/".$row['img_id']."'>"; ?></td>
                       <td><?= $row['date_post'] ?></td>
