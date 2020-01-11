@@ -34,10 +34,9 @@
         } else {
             $parentErr = "Title is required";
         }
-        
         if (empty($categoryErr) && empty($parentErr)) {
             $conn = conn_db();
-            $sql = "UPDATE category SET category.id = $id, category.cate_name = '{$category_name}', category.parent_id = {$category_parent}, category.user = {$user_id} WHERE id = $id ";
+            $sql = "UPDATE category SET category.id = $id, category.cate_name = '{$category_name}', category.parent_id = {$category_parent}, category.user = {$user_id} WHERE id = $id && status";
             mysqli_query($conn, $sql);
             header("Location: http://localhost/zoo/admin/category/list.php");
             } else {
@@ -74,22 +73,24 @@
       <div class="card-header">Edit Category</div>
       <div class="card-body">
         <form method="post" action="edit.php?id=<?=$row['id']?>">
+        <?php if ($row['parent_id'] != 0) { ?>
           <div class="form-group">
             <div class="form-row">
-            <div class="col-md-12">
+              <div class="col-md-12">
                 <select class="col-md-12 form-control" name="category_parent">
-                <?php
+                  <?php
                     while ($row_parent = mysqli_fetch_assoc($result_category)) {
                         $_parent[] = $row_parent;
                     }
                     echo "<option value='$id'>Select main category</option>";
                     foreach ($_parent as $key => $value) : ?>
                     <option value="<?=$value['id']?>" <?=$row['parent_id'] == $value['id'] ? "selected" : ""  ?>><?=$value['cate_name']?></option>
-                    <?php endforeach ?>
+                    <?php endforeach;  ?>
                 </select>
+              </div>
             </div>
-            </div>
-            </div>
+          </div>
+          <?php  } ?>
             <div class="form-group">
           <div class="form-row">
               <div class="col-md-12">

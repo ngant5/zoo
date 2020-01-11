@@ -189,7 +189,6 @@ include('../../connection.php');
                               <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./view.php?id={$row['id']}" ?>" target="_blank"> View </a></button>
                               <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./edit.php?id={$row['id']}" ?>" target="_blank"> Edit </a></button>
                               <button class="btn btn-danger" type="button"><a class="text-white" href="<?="./delete.php?id={$row['id']}" ?>" target="_blank" onclick="return confirm('Are you sure you want to delete this item?');"> Delete </button>
-                          
                           </td>
                           </tr>
 

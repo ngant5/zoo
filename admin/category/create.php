@@ -6,10 +6,10 @@
     include('../../connection.php');
     include('../../admin/session.php');
     $conn = conn_db();
-    $query = "SELECT * FROM category WHERE parent_id = 0";
+    $query = "SELECT * FROM category WHERE parent_id = 0 && status = 1";
     $result = mysqli_query($conn, $query);
-    $parentErr = $cateNameErr = "";
-    $parentId = $categoryName = "";
+    $parentErr = $cateNameErr = $categoryName = "";
+    $parentId = '0';
     $sql_msg = "";
     $user_id = $_SESSION['user']["id"];
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -23,12 +23,14 @@
         } else {
             $cateNameErr = "Category Name is required";
         }
-        if (empty($parentErr) && empty($cateNameErr)) {
+        if (empty($cateNameErr)) {
             $sql = "INSERT INTO category (cate_name, parent_id, user)
             VALUES ('{$categoryName}', {$parentId}, {$user_id})";
             if (mysqli_query($conn, $sql)) {
-                $last_id = mysqli_insert_id($conn);
-                header("Location: http://localhost/zoo/admin/category/list.php");
+                echo ("<SCRIPT LANGUAGE='JavaScript'>
+                window.alert('Succesfully Registered')
+                window.location.href='http://localhost/zoo/admin/category/list.php';
+                </SCRIPT>");
             } else {
                 $sql_msg = "Add Fail";
             }
@@ -68,32 +70,31 @@
         <form method="post" enctype="multipart/form-data">
           <div class="form-group">
             <div class="form-row">
-            <div class="col-md-12">
-                <select  class="col-md-12 form-control" name="id" required="required" autofocus="autofocus">
-                    <?php
-                    echo "<option value='$id'>Select category</option>";
-                        while($row = mysqli_fetch_assoc($result)) {
-                            $id = $row['id'];
-                            $parent_name = $row['cate_name'];
-                            echo "<option value='$id'>$parent_name</option>";
-                        }
-                        mysqli_close($conn);
-                    ?>
-                </select>
+                <div class="col-md-12">
+                    <select  class="col-md-12 form-control" name="id">
+                        <option selected='true' disabled='disabled'>Select main category (if needed)</option>
+                        <?php
+                            while($row = mysqli_fetch_assoc($result)) {
+                                $id = $row['id'];
+                                $parent_name = $row['cate_name'];
+                                echo "<option value='$id'>-$parent_name</option>";
+                            }
+                            mysqli_close($conn);
+                        ?>
+                    </select>
+                </div>
             </div>
-            </div>
-            </div>
+        </div>
             <div class="form-group">
           <div class="form-row">
               <div class="col-md-12">
                 <div class="form-label-group">
-                    <input type="text" id="firstName" class="form-control" placeholder="First name" name="categoryName" required="required" autofocus="autofocus">
+                    <input type="text" class="form-control" name="categoryName" required="required" autofocus="autofocus">
                     <label for="firstName">Category Name</label>
                 </div>
                </div>
             </div>
           </div>
-          
             <button class="btn btn-primary" type="submit">OK</button>
             <button class="btn btn-primary"><a class="text-white" href="./list.php">Cancel</a></button>
         </form>

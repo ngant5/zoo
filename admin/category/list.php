@@ -7,7 +7,7 @@ $id = $_SESSION['user']['id'];
 
 include('../../connection.php');
 $conn = conn_db();
-$sql = "SELECT * FROM category inner join users on category.user = users.user_id WHERE parent_id != 0 && category.status = 1";
+$sql = "SELECT * FROM category inner join users on category.user = users.user_id WHERE category.status = 1 ORDER BY id DESC";
 //mysqli_set_charset($conn, "utf8");
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {

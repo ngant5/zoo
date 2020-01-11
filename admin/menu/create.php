@@ -57,7 +57,6 @@ $conn = conn_db();
     <div class="card card-register mx-auto mt-5">
       <div class="card-header">Add Menu</div>
       <div class="card-body">
-        
         <form method="post">
           <div class="form-group">
           <div class="form-row">
@@ -70,7 +69,7 @@ $conn = conn_db();
             </div>
           </div>
             <button class="btn btn-primary" type="submit">Regiter</button>
-            <button class="btn btn-primary"><a class="text-white" href="./list.php?>">Cancel</a></button>
+            <button class="btn btn-primary"><a class="text-white" href="./list.php">Cancel</a></button>
         </form>
       <!-- </div> -->
             </div>

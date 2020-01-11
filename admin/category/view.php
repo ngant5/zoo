@@ -161,7 +161,6 @@ if(isset($_GET["id"]) && $_GET["id"] > 0) {
         </ol>
 
         <!-- DataTables Example -->
-        
         <div class="card mb-3">
           <div class="card-header">
             <button class="btn btn-primary mb-2" type="button">
@@ -173,7 +172,6 @@ if(isset($_GET["id"]) && $_GET["id"] > 0) {
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
-                    <th>ID</th>
                     <th>Category Name</th>
                     <th>User Name</th>
                     <th>Action</th>
@@ -186,7 +184,6 @@ if(isset($_GET["id"]) && $_GET["id"] > 0) {
                     <td>
                       <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./edit.php?id={$row['id']}" ?>" target="_blank"> Edit </a></button>
                       <button class="btn btn-danger" type="button"><a class="text-white" href="<?="./delete.php?id={$row['id']}" ?>" target="_blank" onclick="return confirm('Are you sure you want to delete this item?');"> Delete </a></button>
-                      
                     </td>
                 </tr>
                 <?php
