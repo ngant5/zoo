@@ -78,11 +78,11 @@
             <div class="form-row">
               <div class="col-md-12">
                 <select class="col-md-12 form-control" name="category_parent">
+                  <option selected='true' disabled='disabled'>Select main category</option>
                   <?php
                     while ($row_parent = mysqli_fetch_assoc($result_category)) {
                         $_parent[] = $row_parent;
                     }
-                    echo "<option value='$id'>Select main category</option>";
                     foreach ($_parent as $key => $value) : ?>
                     <option value="<?=$value['id']?>" <?=$row['parent_id'] == $value['id'] ? "selected" : ""  ?>><?=$value['cate_name']?></option>
                     <?php endforeach;  ?>
