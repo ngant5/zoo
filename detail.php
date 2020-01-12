@@ -23,8 +23,9 @@ include('./common/cm-header.php');
 				?>
                 <div class="col-md-3 welcome-grid"></div>
 				<div class="col-md-6 welcome-grid">
-					<img style="height: 350px;" src="./admin/uploads/<?php echo $row['img_id']; ?>" class="img-responsive" alt="" /><br>
+					<h6 class="wel-info"><?=$row['title']?></h6>
 					<p class="card-text" id="show"><i><?= $row['detail'] ?></i></p>
+					<img style="height: 350px;" src="./admin/uploads/<?php echo $row['img_id']; ?>" class="img-responsive" alt="" /><br>
 				</div>
                 <div class="col-md-3 welcome-grid"></div>
 				<div class="clear-fix"></div>

@@ -22,24 +22,24 @@ include("./common/cm-header.php");
                                 while ($_id = mysqli_fetch_assoc($res_id)) {
                                     ?>
                                     <div class="container welcome">
-                                            <?php
-                                                $sql_content = "SELECT * FROM content left join category on content.cate_id = category.id WHERE category.id = {$_id['id']}";
-                                                $res_content = mysqli_query($conn, $sql_content);
-                                                $_content = mysqli_fetch_assoc($res_content);
-                                                if (mysqli_num_rows($res_content) > 0) { ?>
-                                                    <h2><?=$_id['cate_name']?></h2>
-                                                    <?php
-                                                    while ($_content = mysqli_fetch_assoc($res_content)) {
-                                                        if ($_id['cate_name'] == "Dinning") {
-                                                            ?>
-                                                            <div class="col-md-6 event-grid1">
-                                                                <h4><?=$_content['title']?></h4><br>
-                                                                <div style="text-align:left;"><i><?=$_content['detail']?></i></div>
-                                                                <button class="btn" type="button" style="background-color:#ff9541;"><h4><a href="<?="http://localhost/zoo/detail.php?id={$_content['content_id']}" ?>">Menu</a></h4></button>
-                                                            </div>
-                                                            <?php
-                                                        } else {
+                                        <?php
+                                            $sql_content = "SELECT * FROM content left join category on content.cate_id = category.id WHERE category.id = {$_id['id']}";
+                                            $res_content = mysqli_query($conn, $sql_content);
+                                            $_content = mysqli_fetch_assoc($res_content);
+                                            if (mysqli_num_rows($res_content) > 0) {
+                                                while ($_content = mysqli_fetch_assoc($res_content)) {
+                                                    if ($_id['cate_name'] == "Dinning") {
                                                         ?>
+                                                        <h2><?=$_id['cate_name']?></h2>
+                                                        <div class="col-md-12 event-grid1">
+                                                            <h4><?=$_content['title']?></h4><br>
+                                                            <div style="text-align:left;"><i><?=$_content['detail']?></i></div>
+                                                            <button class="btn" type="button" style="background-color:#ff9541;"><h4><a href="<?="http://localhost/zoo/detail.php?id={$_content['content_id']}" ?>">Menu</a></h4></button>
+                                                        </div>
+                                                        <?php
+                                                    } else {
+                                                        ?>
+                                                            <h2><?=$_id['cate_name']?></h2>
                                                             <div class="col-md-3 welcome-grid">
                                                                 <img style="height: 300px;" src="./admin/uploads/<?php echo $_content['img_id']; ?>" class="img-responsive" alt="" /><br>
                                                                 <div>
@@ -80,7 +80,19 @@ include("./common/cm-header.php");
                             $sql_sub_content = "SELECT * FROM content WHERE content.cate_id = {$id}";
                             $res_sub_content = mysqli_query($conn, $sql_sub_content);
                             if (mysqli_num_rows($res_sub_content) > 0) {
+                                $sql_id = "SELECT * FROM category WHERE id = {$id}";
+                                $res_id = mysqli_query($conn, $sql_id);
+                                $_id_res = mysqli_fetch_assoc($res_id);
                                 while ($_sub_content = mysqli_fetch_assoc($res_sub_content)) {
+                                if ($_id_res['cate_name'] == "Dinning") {
+                                    ?>
+                                    <div class="col-md-12 event-grid1">
+                                        <h4><?=$_sub_content['title']?></h4><br>
+                                        <div style="text-align:left;"><i><?=$_sub_content['detail']?></i></div>
+                                        <button class="btn" type="button" style="background-color:#ff9541;"><h4><a href="<?="http://localhost/zoo/detail.php?id={$_sub_content['content_id']}" ?>">Menu</a></h4></button>
+                                    </div>
+                                    <?php
+                                } else {
                                     ?>
                                     <div class="container">
                                         <div class="col-md-2 welcome-grid"></div>
@@ -94,6 +106,7 @@ include("./common/cm-header.php");
                                     </div>
                                     <?php
                                 }
+                            }
                             }
                         }
                 ?>
