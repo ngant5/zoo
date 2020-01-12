@@ -25,10 +25,20 @@ include("./common/cm-header.php");
                                             <?php
                                                 $sql_content = "SELECT * FROM content left join category on content.cate_id = category.id WHERE category.id = {$_id['id']}";
                                                 $res_content = mysqli_query($conn, $sql_content);
+                                                $_content = mysqli_fetch_assoc($res_content);
                                                 if (mysqli_num_rows($res_content) > 0) { ?>
                                                     <h2><?=$_id['cate_name']?></h2>
                                                     <?php
                                                     while ($_content = mysqli_fetch_assoc($res_content)) {
+                                                        if ($_id['cate_name'] == "Dinning") {
+                                                            ?>
+                                                            <div class="col-md-6 event-grid1">
+                                                                <h4><?=$_content['title']?></h4><br>
+                                                                <div style="text-align:left;"><i><?=$_content['detail']?></i></div>
+                                                                <button class="btn" type="button" style="background-color:#ff9541;"><h4><a href="<?="http://localhost/zoo/detail.php?id={$_content['content_id']}" ?>">Menu</a></h4></button>
+                                                            </div>
+                                                            <?php
+                                                        } else {
                                                         ?>
                                                             <div class="col-md-3 welcome-grid">
                                                                 <img style="height: 300px;" src="./admin/uploads/<?php echo $_content['img_id']; ?>" class="img-responsive" alt="" /><br>
@@ -38,6 +48,7 @@ include("./common/cm-header.php");
                                                             </div>
                                                             <div class="clear-fix"></div>
                                                         <?php
+                                                        }
                                                     }
                                                 }
                                             ?>
