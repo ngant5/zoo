@@ -13,7 +13,7 @@ $id = $_SESSION['user']['id'];
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Zoo - Dashboard</title>
+  <title>The Zoo Planet- Dashboard</title>
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
@@ -30,9 +30,7 @@ $id = $_SESSION['user']['id'];
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
     </button>
-  
     <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-          
       </div>
     </form>
     <!-- Navbar -->
@@ -62,16 +60,7 @@ $id = $_SESSION['user']['id'];
           <span>Dashboard</span>
         </a>
       </li>
-      <li class="nav-item dropdown" aria-labelledby="pagesDropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Menus</span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="../admin/menu/list.php">All Menus</a>
-          <a class="dropdown-item" href="../admin/menu/create.php">Add Menu</a>
-        </div>
-      </li>
+      <!-- Category Sidebar -->
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
@@ -82,16 +71,7 @@ $id = $_SESSION['user']['id'];
           <a class="dropdown-item" href="../admin/category/create.php">Add Category</a>
         </div>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Pages</span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="../admin/page/list.php">All Pages</a>
-          <a class="dropdown-item" href="../admin/page/create.php">Add Page</a>
-        </div>
-      </li>
+      <!-- Post Sidebar -->
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
@@ -105,38 +85,26 @@ $id = $_SESSION['user']['id'];
     </ul>
 
     <div id="content-wrapper">
-
       <div class="container-fluid">
-
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a>Dashboard</a>
+            <a href="dashboard.php">Dashboard</a>
           </li>
           <li class="breadcrumb-item active">Overview</li>
         </ol>
       </div>
-      <!-- /.container-fluid -->
 
       <!-- Sticky Footer -->
       <footer class="sticky-footer">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright © <a href="#">Zoo</a> 2020. </span>All rights reserved
+            <span>Copyright © <a href="http://localhost/zoo/">The Zoo Planet</a> 2020. </span>All rights reserved
           </div>
         </div>
       </footer>
-
     </div>
     <!-- /.content-wrapper -->
-
-  </div>
-  <!-- /#wrapper -->
-
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
 
   <!-- Logout Modal-->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -177,5 +145,4 @@ $id = $_SESSION['user']['id'];
   <script src="js/demo/chart-area-demo.js"></script>
 
 </body>
-
 </html>
