@@ -50,6 +50,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     .navbar-nav li {
         position: relative;
         display: inline-block !important;
+        margin-top: 20px !important;
     }
     .navbar-nav li li {
         display: none !important;
@@ -91,7 +92,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <?php
+                            
                             echo "<ul class='nav navbar-nav'><li><a href='http://localhost/zoo/about-us.php'>Aubout Us</a></li></ul>";
+                            echo "<ul class='nav navbar-nav'><li><a href='http://localhost/zoo/whats-up.php'>Whats Up</a></li></ul>";
                             display_menu();
                             echo "<ul class='nav navbar-nav'><li><a href='http://localhost/zoo/experience.php'>Experience</a></li></ul>";
                             echo "<ul class='nav navbar-nav'><li><a href='http://localhost/zoo/index.php'>Home</a></li></ul>";
