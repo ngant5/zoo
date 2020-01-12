@@ -22,14 +22,27 @@
  		<div class="contact">
 		 <div class="container">
 		 	<div class="company_ad">
+				<div class="col-md-3"></div>
+					<div class="col-md-6"><h3>Who We Are</h3></div>
+				<div class="col-md-3"></div>
+				<div class="clearfix"></div>
+				<div class="col-md-1"></div>
+				<div class="col-md-10">
+					<p><b>Our Zoo, is run by around 250 staff together with approximately 300 volunteers who run the Activity Centre and organise our animal encounter and outreach sessions. Our team engages with local community groups, schools and supports conservation projects within the field.</b></p>
+				</div>
+				<div class="clearfix"></div>
+				</br>
+
+			</div>
+		 	<div class="company_ad">
 			 	<div class="col-md-3"></div>
 				<div class="col-md-6"><h3>Business Opportunities</h3></div>
 				<div class="col-md-3"></div>
-				<div class="clearfix"> </div>
+				<div class="clearfix"></div>
 				<div class="col-md-1"></div>
 				<div class="col-md-10">
 					<p><b>
-						The Zoo Planet (ZP) is the private, nonprofit, partner of the Saigon Zoo and Botanical Gardens. 
+						The Zoo Planet (ZP) is the private, nonprofit, partner of the Saigon Zoo and Botanical Gardens.
 						Through various agreements with the Ho Chi Minh City and the Zoo, ZP manages seven essential Zoo departments, including fundraising, membership, publications, marketing, special events, volunteers and concessions and retail.
 					</b></p><br>
 					<p><b>

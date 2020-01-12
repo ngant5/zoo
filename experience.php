@@ -3,24 +3,15 @@
     include('./common/cm-header.php');
 ?>
 <div class="banner-header">
-    <div class="container">
-        
-    </div>
+    <div class="container"></div>
 </div>
 <!--about-->
 <div class="content">
         <div class="about-section">
             <div class="container">
                     <div class="about-grids">
-                        <div class="col-md-4 about-grid">
-                            <h3>WHO WE ARE</h3>
-                            <!-- <img src="images/p5.jpg" class="img-responsive" alt="/"> -->
-                            <div class="about1">
-                                <p>Our Zoo, is run by around 250 staff together with approximately 300 volunteers who run the Activity Centre and organise our animal encounter and outreach sessions. Our team engages with local community groups, schools and supports conservation projects within the field.</p>
-                            </div>
-                            </div>
-                        <div class="col-md-8 about-grid">
-                        <h3>ANIMAL EXPERIENCES</h3>
+                        <div class="col-md-12 about-grid">
+                        <h3 style="text-align:center;">Animal Experiences</h3>
                             <div class="trend">
                                 <p>Our award-winning animal experiences are exciting, educational and unforgettable. Whether you’re looking for that perfect gift, or you would like to add something special to your day visit, our animal experiences are the answer.</p>
                             </div>
