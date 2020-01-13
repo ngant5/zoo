@@ -1,125 +1,154 @@
 <?php
-include("./connection.php");
-include("./common/cm-header.php");
+    include("./connection.php");
+    include("./common/cm-header.php");
 ?>
+<style>
+    .img-page {
+        width: 500px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+}
+    }
+</style>
 <div class="banner-header">
 	<div class="container"></div>
 </div>
-<div class="content">
-    <div class="services-section">
-        <div class="container">
-            <div class="welcome-grids">
-                <?php
-                    if (!empty($_GET['id'])) {
-                        $conn = conn_db();
-                        $row[] = '';
-                        $id = $_GET["id"];
-                        $parent_id = $_GET["parent_id"];
-                        if ($parent_id == 0) {
-                            $sql_id = "SELECT * FROM category WHERE parent_id = {$id}";
-                            $res_id = mysqli_query($conn, $sql_id);
-                            if (mysqli_fetch_assoc($res_id)) {
-                                while ($_id = mysqli_fetch_assoc($res_id)) {
-                                    ?>
-                                    <div class="container welcome">
-                                        <?php
-                                            $sql_content = "SELECT * FROM content left join category on content.cate_id = category.id WHERE category.id = {$_id['id']}";
-                                            $res_content = mysqli_query($conn, $sql_content);
-                                            $_content = mysqli_fetch_assoc($res_content);
-                                            if (mysqli_num_rows($res_content) > 0) {
-                                                while ($_content = mysqli_fetch_assoc($res_content)) {
-                                                    if ($_id['cate_name'] == "Dinning") {
-                                                        ?>
-                                                        <h2><?=$_id['cate_name']?></h2>
-                                                        <div class="col-md-12 event-grid1">
-                                                            <h4><?=$_content['title']?></h4><br>
-                                                            <div style="text-align:left;"><i><?=$_content['detail']?></i></div>
-                                                            <button class="btn" type="button" style="background-color:#ff9541;"><h4><a href="<?="http://localhost/zoo/detail.php?id={$_content['content_id']}" ?>">Menu</a></h4></button>
-                                                        </div>
-                                                        <?php
-                                                    } else {
-                                                        ?>
-                                                            <h2><?=$_id['cate_name']?></h2>
-                                                            <div class="col-md-3 welcome-grid">
-                                                                <img style="height: 300px;" src="./admin/uploads/<?php echo $_content['img_id']; ?>" class="img-responsive" alt="" /><br>
-                                                                <div>
-                                                                    <button class="wel-info" type="button"><h4><a href="<?="http://localhost/zoo/detail.php?id={$_content['content_id']}" ?>"><?=$_content['title'] ?></a></h4></button><br>
-                                                                </div>
-                                                            </div>
-                                                            <div class="clear-fix"></div>
-                                                        <?php
-                                                        }
-                                                    }
-                                                }
-                                            ?>
+<div class="events">
+<?php
+    if (!empty($_GET['id'])) {
+        $conn = conn_db();
+        $g_id = $_GET["id"];
+        $g_parent_id = $_GET["parent_id"];
+        if ($g_parent_id == 0) {
+            $sql_id = "SELECT * FROM category WHERE parent_id = {$g_id}";
+            $query_id = mysqli_query($conn, $sql_id);
+            if (mysqli_num_rows($query_id) > 0) {
+                while ($_category = mysqli_fetch_assoc($query_id)) {
+                    $sql_content = "SELECT * FROM content left join category on content.cate_id = category.id WHERE category.id = {$_category['id']}";
+                    $query_content = mysqli_query($conn, $sql_content);
+                    if (mysqli_num_rows($query_content) > 0) {
+                        ?>
+                        <h3><?=$_category['cate_name']?></h3>
+                        <?php
+                        while ($_content = mysqli_fetch_assoc($query_content)) {
+                            if ($_category['cate_name'] == "Dinning") {
+                                ?>
+                                <div class="container">
+                                    <div class="events-grids event-img">
+                                        <div class="col-md-4 event-grid1">
+                                            <h4><?=$_content['title']?></h4>
+                                            <button class="btn" type="button" style="background-color:#ff9541;"><h4><a href="<?="http://localhost/zoo/detail.php?id={$_content['content_id']}" ?>">Menu</a></h4></button>
+                                        </div>
+                                        <div class="col-md-8 event-grid">
+                                            <p><?=$_content['detail']?></p>
+                                        </div>
                                     </div>
+                                    <div class="clear-fix"></div>
+                                </div>
                                 <?php
-                                }
                             } else {
-                                $sql_main = "SELECT * FROM content WHERE content.cate_id = {$id}";
-                                $res_main = mysqli_query($conn, $sql_main);
-                                if (mysqli_num_rows($res_main) > 0) {
-                                    while ($_main = mysqli_fetch_assoc($res_main)) {
-                                        ?>
-                                        <div class="container">
-                                            <div class="col-md-2 welcome-grid"></div>
-                                            <div class="col-md-4 welcome-grid">
-                                                <img style="height: 300px;" src="./admin/uploads/<?php echo $_main['img_id']; ?>" class="img-responsive" alt="" />
-                                            <div>
-                                                <button class="wel-info" type="button"><h4><a href="<?="http://localhost/zoo/detail.php?id={$_main['content_id']}" ?>"><?=$_main['title'] ?></a></h4></button><br>
-                                            </div>
-                                            <div class="col-md-2 welcome-grid"></div>
-                                            <div class="clear-fix"></div>
+                                ?>
+                                <div class="container">
+                                    <div class="events-grids event-img">
+                                        <div class="col-md-4 event-grid">
+                                            <img class="img-responsive" src="./admin/uploads/<?php echo $_content['img_id']; ?>" class="img-responsive" alt="" />
                                         </div>
-                                        <?php
-                                    }
-                                }
-                            }
-                        } else {
-                            // $sql_sub_content = "SELECT * FROM content left join category on content.cate_id = category.id WHERE category.id = {$id}";
-                            $sql_sub_content = "SELECT * FROM content WHERE content.cate_id = {$id}";
-                            $res_sub_content = mysqli_query($conn, $sql_sub_content);
-                            if (mysqli_num_rows($res_sub_content) > 0) {
-                                $sql_id = "SELECT * FROM category WHERE id = {$id}";
-                                $res_id = mysqli_query($conn, $sql_id);
-                                $_id_res = mysqli_fetch_assoc($res_id);
-                                while ($_sub_content = mysqli_fetch_assoc($res_sub_content)) {
-                                if ($_id_res['cate_name'] == "Dinning") {
-                                    ?>
-                                    <div class="col-md-12 event-grid1">
-                                        <h4><?=$_sub_content['title']?></h4><br>
-                                        <div style="text-align:left;"><i><?=$_sub_content['detail']?></i></div>
-                                        <button class="btn" type="button" style="background-color:#ff9541;"><h4><a href="<?="http://localhost/zoo/detail.php?id={$_sub_content['content_id']}" ?>">Menu</a></h4></button>
-                                    </div>
-                                    <?php
-                                } else {
-                                    ?>
-                                    <div class="container">
-                                        <div class="col-md-2 welcome-grid"></div>
-                                        <div class="col-md-4 welcome-grid">
-                                            <img style="height: 300px;" src="./admin/uploads/<?php echo $_sub_content['img_id']; ?>" class="img-responsive" alt="" />
-                                        <div>
-                                            <button class="wel-info" type="button"><h4><a href="<?="http://localhost/zoo/detail.php?id={$_sub_content['content_id']}" ?>"><?=$_sub_content['title'] ?></a></h4></button>
+                                        <div class="col-md-8 event-grid1">
+                                            <h4><?=$_content['title']?></h4>
+                                            <p><?=$_content['detail']?></p>
                                         </div>
-                                        <div class="col-md-2 welcome-grid"></div>
-                                        <div class="clear-fix"></div>
                                     </div>
-                                    <?php
-                                }
+                                    <div class="clear-fix"></div>
+                                </div>
+                                <?php
                             }
                         }
                     }
-                ?>
+                }
+            } else {
+                // content of parent category
+                $sql_parent_content = "SELECT * FROM content left join category on content.cate_id = category.id WHERE category.id = {$g_id}";
+                $query_parent_content = mysqli_query($conn, $sql_parent_content);
+                if (mysqli_num_rows($query_parent_content) > 0) { 
+                    while ($_parent_content = (mysqli_fetch_assoc($query_parent_content))) {
+                    ?>
+                    <div class="container">
+                        <div class="events-grids event-img">
+                            <div class="col-md-4 event-grid">
+                                <img class="img-responsive" src="./admin/uploads/<?php echo $_parent_content['img_id']; ?>" class="img-responsive" alt="" />
+                            </div>
+                            <div class="col-md-8 event-grid1">
+                                <h4><?=$_parent_content['title']?></h4>
+                                <p><?=$_parent_content['detail']?></p>
+                            </div>
+                        </div>
+                        <div class="clear-fix"></div>
+                    </div>
                 <?php
-                    } else {
-                        echo "updating...";
                     }
-                ?>
+                }
+            }
+        } else {
+            // content of child category
+            $sql_cate = "SELECT * FROM category WHERE id = {$g_id}";
+            $query_cate = mysqli_query($conn, $sql_cate);
+            if (mysqli_num_rows($query_cate) > 0) {
+                $_cate = mysqli_fetch_assoc($query_cate);
+                // query child content
+                $sql_child_content = "SELECT * FROM content left join category on content.cate_id = category.id WHERE category.id = {$g_id}";
+                $query_child_content = mysqli_query($conn, $sql_child_content);
+                if ($_cate['cate_name'] == "Dinning") {
+                    //Dinning
+                    if (mysqli_num_rows($query_child_content) > 0) {
+                        while ($_child_content = mysqli_fetch_assoc($query_child_content)) {
+                            ?>
+                            <div class="container">
+                                <div class="events-grids event-img">
+                                    <div class="col-md-4 event-grid1">
+                                        <h4><?=$_child_content['title']?></h4>
+                                        <button class="btn" type="button" style="background-color:#ff9541;"><h4><a href="<?="http://localhost/zoo/detail.php?id={$_child_content['content_id']}" ?>">Menu</a></h4></button>
+                                    </div>
+                                    <div class="col-md-8 event-grid">
+                                        <p><?=$_child_content['detail']?></p>
+                                    </div>
+                                </div>
+                                <div class="clear-fix"></div>
+                            </div>
+                            <?php
+                        }
+                    }
+
+                } else {
+                    // Leisure
+                    if (mysqli_num_rows($query_child_content) > 0) {
+                        while ($_child_content = mysqli_fetch_assoc($query_child_content)) {
+                            ?>
+                            <div class="container">
+                                <div class="events-grids event-img">
+                                    <div class="col-md-6 event-grid">
+                                        <img class="img-responsive" src="./admin/uploads/<?php echo $_child_content['img_id']; ?>" class="img-responsive" alt="" />
+                                    </div>
+                                    <div class="col-md-6 event-grid1">
+                                        <h4><?=$_child_content['title']?></h4>
+                                        <p><?=$_child_content['detail']?></p>
+                                    </div>
+                                </div>
+                                <div class="clear-fix"></div>
+                            </div>
+                            <?php
+                        }
+                    }
+                }
+            }
+        }
+    }
+?>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
 <script src="./js/script.js"></script>
 <?php
     include("./common/cm-footer.php");
