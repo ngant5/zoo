@@ -29,6 +29,7 @@
 				<div class="col-md-1"></div>
 				<div class="col-md-10">
 					<p><b>Our Zoo, is run by around 250 staff together with approximately 300 volunteers who run the Activity Centre and organise our animal encounter and outreach sessions. Our team engages with local community groups, schools and supports conservation projects within the field.</b></p>
+					<p><b>Zoo, also called zoological garden or zoological park, place where wild animals and, in some instances, domesticated animals are exhibited in captivity. In such an establishment animals can generally be given more intensive care than is possible in nature reserves or sanctuaries. Most long-established zoos exhibit general collections of animals, but some formed more recently specialize in particular groups—e.g., primates, big cats, tropical birds, or waterfowl. Marine invertebrates, fishes, and marine mammals often are kept in separate establishments known as aquariums (see aquarium). </b></p>
 				</div>
 				<div class="clearfix"></div>
 				</br>
@@ -52,7 +53,7 @@
 						Enquiries can be emailed to zoo-planet@gmail.com
 					</b>
 					</p><br>
-					<a href="mailto:zoo-planet@gmail.com" class="btn btn-info btn-lg email">
+					<a href="mailto:zoo-planet@gmail.com?subject=[New Contact Message]" class="btn btn-info btn-lg email">
 						<span class="glyphicon glyphicon-envelope"></span>  <b>CONTACT US</b>
 					</a>
 				</div>
