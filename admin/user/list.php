@@ -77,12 +77,12 @@ include('../../connection.php');
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
-          <span>Users</span>
+          <span>Accounts</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <!-- <a class="dropdown-item" href="forgot-password.html">Forgot Password</a> -->
-          <a class="dropdown-item" disable>All Users</a>
-          <a class="dropdown-item" href="./create.php">Add User</a>
+          <a class="dropdown-item" disable>All Accounts</a>
+          <a class="dropdown-item" href="./create.php">Add Account</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -116,7 +116,7 @@ include('../../connection.php');
           <li class="breadcrumb-item">
             <a href="../index.php">Dashboard</a>
           </li>
-          <li class="breadcrumb-item active">Users</li>
+          <li class="breadcrumb-item active">Account</li>
         </ol>
 
         <!-- DataTables Example -->

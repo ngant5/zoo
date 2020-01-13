@@ -95,7 +95,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <?php
-                            echo "<ul class='nav navbar-nav'><li><a href='http://localhost/zoo/about-us.php'>Aubout Us</a></li></ul>";
+                            echo "<ul class='nav navbar-nav'><li><a href='http://localhost/zoo/about-us.php'>About Us</a></li></ul>";
                             echo "<ul class='nav navbar-nav'><li><a href='http://localhost/zoo/whats-up.php'>Whats Up</a></li></ul>";
                             display_menu();
                             echo "<ul class='nav navbar-nav'><li><a href='http://localhost/zoo/experience.php'>Experience</a></li></ul>";

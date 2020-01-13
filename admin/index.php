@@ -77,12 +77,12 @@ $id = $_SESSION['user']['id'];
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
-          <span>Users</span>
+          <span>Accounts</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <!-- <a class="dropdown-item" href="forgot-password.html">Forgot Password</a> -->
-          <a class="dropdown-item" href="../admin/user/list.php">All Users</a>
-          <a class="dropdown-item" href="../admin/user/create.php">Add User</a>
+          <a class="dropdown-item" href="../admin/user/list.php">All Account</a>
+          <a class="dropdown-item" href="../admin/user/create.php">Add Account</a>
         </div>
       </li>
       <li class="nav-item dropdown">
