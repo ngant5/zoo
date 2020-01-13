@@ -26,7 +26,7 @@ if(isset($_GET["id"]) && $_GET["id"] > 0) {
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Zoo Admin - User</title>
+  <title>Zoo Planet - Admin</title>
 
   <!-- Custom fonts for this template-->
   <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -43,7 +43,7 @@ if(isset($_GET["id"]) && $_GET["id"] > 0) {
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="../index.php">Zoo - Admin</a>
+    <a class="navbar-brand mr-1" href="../index.php">Zoo Planet - Admin</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
@@ -97,25 +97,15 @@ if(isset($_GET["id"]) && $_GET["id"] > 0) {
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <!-- <a class="dropdown-item" href="forgot-password.html">Forgot Password</a> -->
-          <a class="dropdown-item" href="../../admin/user/list.php">All Users</a>
-          <a class="dropdown-item" href="../../admin/user/create.php">Add User</a>
+          <a class="dropdown-item" href="../user/list.php">All Users</a>
+          <a class="dropdown-item" href="../user/create.php">Add User</a>
         </div>
       </li>
       <?php
-      } else { 
+      } else {
         echo "<li></li>";
       }
       ?>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Menus</span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="../menu/list.php">All Menus</a>
-          <a class="dropdown-item" href="../menu/create.php">Add Menu</a>
-        </div>
-      </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
@@ -124,16 +114,6 @@ if(isset($_GET["id"]) && $_GET["id"] > 0) {
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <a class="dropdown-item" href="../category/list.php">All Categories</a>
           <a class="dropdown-item" href="../category/create.php">Add Category</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Pages</span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="../page/list.php">All Pages</a>
-          <a class="dropdown-item" href="../page/create.php">Add Page</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -197,7 +177,6 @@ if(isset($_GET["id"]) && $_GET["id"] > 0) {
               </table>
             </div>
           </div>
-          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
 
         <p class="small text-center text-muted my-5">
@@ -211,7 +190,7 @@ if(isset($_GET["id"]) && $_GET["id"] > 0) {
       <footer class="sticky-footer">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright © <a href="#">Zoo</a> 2020. </span>All rights reserved
+            <p>&copy; 2020 Zoo Planet . All rights reserved | Design by <a href="http://localhost/zoo/index.php">Zoo Planet</a></p>
           </div>
         </div>
       </footer>

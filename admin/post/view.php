@@ -17,7 +17,7 @@ include('../../connection.php');
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Zoo Admin - Post</title>
+  <title>Zoo Planet - Admin</title>
 
   <!-- Custom fonts for this template-->
   <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -34,7 +34,7 @@ include('../../connection.php');
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="../index.php">Zoo - Admin</a>
+    <a class="navbar-brand mr-1" href="../index.php">Zoo Planet - Admin</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
@@ -93,38 +93,18 @@ include('../../connection.php');
         </div>
       </li>
       <?php
-      } else { 
+      } else {
         echo "<li></li>";
       }
       ?>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
-          <span>Menus</span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="../../admin/menu/list.php">All Menus</a>
-          <a class="dropdown-item" href="../../admin/menu/create.php">Add Menu</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
           <span>Categories</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="../../category/list.php">All Categories</a>
-          <a class="dropdown-item" href="../../category/create.php">Add Category</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Pages</span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="../page/list.php">All Pages</a>
-          <a class="dropdown-item" href="../page/create.php">Add Page</a>
+          <a class="dropdown-item" href="../category/list.php">All Categories</a>
+          <a class="dropdown-item" href="../category/create.php">Add Category</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -195,7 +175,6 @@ include('../../connection.php');
                       <td>
                         <button class="btn btn-primary" type="button"><a class="text-white" href="<?="./edit.php?id={$row['content_id']}" ?>" target="_blank"> Edit </a></button>
                         <button class="btn btn-danger" type="button"><a class="text-white" href="<?="./delete.php?id={$row['content_id']}" ?>" target="_blank" onclick="return confirm('Are you sure you want to delete this item?');"> Delete </a></button>
-                          
                       </td>
                   </tr>
 
@@ -208,7 +187,6 @@ include('../../connection.php');
               </table>
             </div>
           </div>
-          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
 
         <p class="small text-center text-muted my-5">
@@ -222,7 +200,7 @@ include('../../connection.php');
       <footer class="sticky-footer">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright © <a href="#">Zoo</a> 2020. </span>All rights reserved
+            <p>&copy; 2020 Zoo Planet . All rights reserved | Design by <a href="http://localhost/zoo/index.php">Zoo Planet</a></p>
           </div>
         </div>
       </footer>

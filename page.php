@@ -107,8 +107,8 @@ include("./common/cm-header.php");
                                     <?php
                                 }
                             }
-                            }
                         }
+                    }
                 ?>
                 <?php
                     } else {
