@@ -37,11 +37,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($nameErr) && empty($passErr) ) {
         $sql = "UPDATE users SET users.user_id = $id, users.username = '{$name}'  WHERE user_id = $id";
         if (mysqli_query($conn, $sql)) {
-            $last_id = mysqli_insert_id($conn);
-            header("Location: http://localhost/zoo/admin/user/view.php?id={$id}");
-        } else {
-            $sql_msg = "Add Fail";
-        }
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Update Successfully')
+          window.location.href='http://localhost/zoo/admin/user/list.php';
+          </SCRIPT>");
+      } else {
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Update Failed')
+          window.location.href='http://localhost/zoo/admin/user/list.php';
+          </SCRIPT>");
+      }
         $name = $pass = "";
         
     }

@@ -33,7 +33,6 @@
             loop_array($array);
         }
     }
-    
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (isset($_POST["category"]) && !empty($_POST["category"])) {
             $category = $_POST["category"];
@@ -54,21 +53,27 @@
             $target_dir = "../uploads/";
             $target_file = $target_dir . basename($_FILES['image']['name']);
             $image = $_FILES['image']['name'];
+            move_uploaded_file($_FILES['image']['tmp_name'], $target_file);
         }
         if (empty($categoryErr) && empty($titleErr) && empty($detailErr)) {
             $sql = "INSERT INTO content (title, detail, cate_id, user_id, img_id)
             VALUES ('{$title}', '{$detail}', {$category}, {$user_id}, '{$image}')";
-            if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
-                    mysqli_query($conn, $sql);
-                    $last_id = mysqli_insert_id($conn);
-                    header("Location: http://localhost/zoo/admin/post/list.php");
-                    $sql_msg = "Add successed <a href='view.php/?id={$last_id}' target='_blank' >View</a>";
-                }
+            if (mysqli_query($conn, $sql)) {
+                echo ("<SCRIPT LANGUAGE='JavaScript'>
+                window.alert('Succesfully Added')
+                window.location.href='http://localhost/zoo/admin/post/list.php';
+                </SCRIPT>");
             } else {
-                echo "Add page fail";
+                echo ("<SCRIPT LANGUAGE='JavaScript'>
+                window.alert('Add Failed')
+                window.location.href='http://localhost/zoo/admin/post/list.php';
+                </SCRIPT>");
             }
+            $target_dir = $target_file = $image = "";
+        }
     }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

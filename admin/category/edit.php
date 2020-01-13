@@ -37,10 +37,17 @@
         if (empty($categoryErr) && empty($parentErr)) {
             $conn = conn_db();
             $sql = "UPDATE category SET category.id = $id, category.cate_name = '{$category_name}', category.parent_id = {$category_parent}, category.user = {$user_id} WHERE id = $id && status";
-            mysqli_query($conn, $sql);
-            header("Location: http://localhost/zoo/admin/category/list.php");
-            } else {
-                echo "Add page fail";
+            if (mysqli_query($conn, $sql)) {
+              echo ("<SCRIPT LANGUAGE='JavaScript'>
+              window.alert('Update Successfully')
+              window.location.href='http://localhost/zoo/admin/category/list.php';
+              </SCRIPT>");
+          } else {
+              echo ("<SCRIPT LANGUAGE='JavaScript'>
+              window.alert('Update Failed')
+              window.location.href='http://localhost/zoo/admin/category/list.php';
+              </SCRIPT>");
+          }
         }
     }
 ?>

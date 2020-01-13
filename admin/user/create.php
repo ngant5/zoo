@@ -25,11 +25,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $conn = conn_db();
         $sql = "INSERT INTO users (username, password) VALUES ('{$name}', '{$pass}')";
         if (mysqli_query($conn, $sql)) {
-            $last_id = mysqli_insert_id($conn);
-            header("Location: http://localhost/zoo/admin/user/view.php?id={$last_id}");
-        } else {
-            $sql_msg = "Add Fail";
-        }
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Succesfully Added')
+          window.location.href='http://localhost/zoo/admin/user/list.php';
+          </SCRIPT>");
+      } else {
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Add Failed')
+          window.location.href='http://localhost/zoo/admin/user/list.php';
+          </SCRIPT>");
+      }
+      $target_dir = $target_file = $image = "";
         $name = $pass = "";
         mysqli_close($conn);
     }

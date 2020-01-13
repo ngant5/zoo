@@ -32,7 +32,10 @@
                 window.location.href='http://localhost/zoo/admin/category/list.php';
                 </SCRIPT>");
             } else {
-                $sql_msg = "Add Fail";
+                echo ("<SCRIPT LANGUAGE='JavaScript'>
+                window.alert('Add Failed')
+                window.location.href='http://localhost/zoo/admin/category/list.php';
+                </SCRIPT>");
             }
             $categoryName = $id = "";
             mysqli_close($conn);

@@ -20,18 +20,16 @@
         $user_id = $_SESSION['user']["id"];
         $sql_msg = "";
         $query = "SELECT * FROM category WHERE parent_id != 0";
-        
         $result_category = mysqli_query($conn, $query);
         $id = $_GET['id'];
         $sql_content = "SELECT * FROM content left join users on content.user_id = users.user_id
                                               left join category on content.cate_id = category.id WHERE content_id = $id";
-        
         //$sql_content = "SELECT * FROM content WHERE content_id = $id";
         $result_content = mysqli_query($conn, $sql_content);
         if (mysqli_num_rows($result_content) == 1) {
             $row = mysqli_fetch_assoc($result_content);
             $category = $row['cate_name'];
-            $detail = $row['detail'];
+            $title = $row['title'];
             $detail = $row['detail'];
             $image = $row['img_id'];
         }
@@ -58,19 +56,25 @@
                 $target_dir = "../uploads/";
                 $target_file = $target_dir . basename($_FILES['image']['name']);
                 $image = $_FILES['image']['name'];
-                $img = move_uploaded_file($_FILES['image']['tmp_name'], $target_file);    
+                $img = move_uploaded_file($_FILES['image']['tmp_name'], $target_file);
             }
         }
-        if (empty($categoryErr) && empty($titleErr) && empty($detailErr)) {
+        if (empty($titleErr) && empty($detailErr)) {
             $conn = conn_db();
-            $sql = "UPDATE content SET content.title = '{$title}', content.detail = '{$detail}', content.cate_id = {$category}, content.user_id = {$user_id}, content.img_id = '{$image}' WHERE content_id = $id";
-            mysqli_query($conn, $sql);
-            header("Location: http://localhost/zoo/admin/post/list.php");
-                }
-                else {
-                    echo "Add page fail";
-            } 
+            $sql = "UPDATE content SET content.title = '{$title}', content.detail = '{$detail}', content.user_id = {$user_id}, content.img_id = '{$image}' WHERE content_id = $id";
+            if (mysqli_query($conn, $sql)) {
+                echo ("<SCRIPT LANGUAGE='JavaScript'>
+                window.alert('Update Successfully')
+                window.location.href='http://localhost/zoo/admin/post/list.php';
+                </SCRIPT>");
+            } else {
+                echo ("<SCRIPT LANGUAGE='JavaScript'>
+                window.alert('Update Failed')
+                window.location.href='http://localhost/zoo/admin/post/list.php';
+                </SCRIPT>");
+            }
         }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -101,7 +105,7 @@
       <div class="card-header">Add Page</div>
       <div class="card-body">
         <form method="post" action="edit.php?id=<?=$row['content_id']?>" enctype="multipart/form-data">
-          <div class="form-group">
+          <!-- <div class="form-group">
             <div class="form-row">
             <div class="col-md-12">
                 <select  class="col-md-12 form-control" name="category">
@@ -116,7 +120,7 @@
                 </select>
             </div>
             </div>
-            </div>
+            </div> -->
             <div class="form-group">
           <div class="form-row">
               <div class="col-md-12">

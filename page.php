@@ -52,7 +52,7 @@
                                 <div class="container">
                                     <div class="events-grids event-img">
                                         <div class="col-md-4 event-grid">
-                                            <img class="img-responsive" src="./admin/uploads/<?php echo $_content['img_id']; ?>" class="img-responsive" alt="" />
+                                            <img style="width:300px;" class="img-responsive" src="./admin/uploads/<?php echo $_content['img_id']; ?>" class="img-responsive" alt="" />
                                         </div>
                                         <div class="col-md-8 event-grid1">
                                             <h4><?=$_content['title']?></h4>
@@ -70,13 +70,13 @@
                 // content of parent category
                 $sql_parent_content = "SELECT * FROM content left join category on content.cate_id = category.id WHERE category.id = {$g_id}";
                 $query_parent_content = mysqli_query($conn, $sql_parent_content);
-                if (mysqli_num_rows($query_parent_content) > 0) { 
+                if (mysqli_num_rows($query_parent_content) > 0) {
                     while ($_parent_content = (mysqli_fetch_assoc($query_parent_content))) {
                     ?>
                     <div class="container">
                         <div class="events-grids event-img">
                             <div class="col-md-4 event-grid">
-                                <img class="img-responsive" src="./admin/uploads/<?php echo $_parent_content['img_id']; ?>" class="img-responsive" alt="" />
+                                <img style="width: 300px;" class="img-responsive" src="./admin/uploads/<?php echo $_parent_content['img_id']; ?>" class="img-responsive" alt="" />
                             </div>
                             <div class="col-md-8 event-grid1">
                                 <h4><?=$_parent_content['title']?></h4>
@@ -99,7 +99,6 @@
                 $sql_child_content = "SELECT * FROM content left join category on content.cate_id = category.id WHERE category.id = {$g_id}";
                 $query_child_content = mysqli_query($conn, $sql_child_content);
                 if ($_cate['cate_name'] == "Dinning") {
-                    //Dinning
                     if (mysqli_num_rows($query_child_content) > 0) {
                         while ($_child_content = mysqli_fetch_assoc($query_child_content)) {
                             ?>
@@ -120,14 +119,13 @@
                     }
 
                 } else {
-                    // Leisure
                     if (mysqli_num_rows($query_child_content) > 0) {
                         while ($_child_content = mysqli_fetch_assoc($query_child_content)) {
                             ?>
                             <div class="container">
                                 <div class="events-grids event-img">
                                     <div class="col-md-6 event-grid">
-                                        <img class="img-responsive" src="./admin/uploads/<?php echo $_child_content['img_id']; ?>" class="img-responsive" alt="" />
+                                        <img style="width:500px; class="img-responsive" src="./admin/uploads/<?php echo $_child_content['img_id']; ?>" class="img-responsive" alt="" />
                                     </div>
                                     <div class="col-md-6 event-grid1">
                                         <h4><?=$_child_content['title']?></h4>
@@ -142,12 +140,16 @@
                 }
             }
         }
+    } else {
+        ?>
+        <div class="jumbotron" style="height: 500px;">
+            <h1 class="display-6">Welcome to Zoo Planet!</h1>
+            <p class="lead">We will update this content soon.</p>
+        </div>
+        <?php
     }
 ?>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 </div>
 <script src="./js/script.js"></script>
 <?php
