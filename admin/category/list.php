@@ -32,7 +32,6 @@ if (mysqli_num_rows($result) > 0) {
 
   <!-- Custom fonts for this template-->
   <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  
   <!-- Page level plugin CSS-->
   <link href="../vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
@@ -134,7 +133,7 @@ if (mysqli_num_rows($result) > 0) {
           <li class="breadcrumb-item active">Category</li>
         </ol>
 
-        <!-- DataTables Example -->
+        <!-- DataTables -->
         <div class="card mb-3">
           <div class="card-header">
           <button class="btn btn-primary mb-2" type="button">
@@ -169,7 +168,7 @@ if (mysqli_num_rows($result) > 0) {
                       </tr>
                     <?php endforeach;
                     }
-                    // mysqli_close($conn);
+                    mysqli_close($conn);
                   ?>
                     </tbody>
               </table>

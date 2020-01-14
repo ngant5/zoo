@@ -180,11 +180,6 @@ include('../../connection.php');
             </div>
           </div>
         </div>
-
-        <p class="small text-center text-muted my-5">
-          <em>More table examples coming soon...</em>
-        </p>
-
       </div>
       <!-- /.container-fluid -->
 

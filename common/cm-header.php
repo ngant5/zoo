@@ -73,6 +73,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 <!--header-->
+<div class="logo">
+    <img src="../logo.png" alt="">
+</div>
     <div class="header">
         <div class="container">
             <div class="header-top">
@@ -86,7 +89,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <div class="navbar-brand">
+                            <div class="navbar-brand logo">
                                 <h1><a href="index.php">zoo planet</a></h1>
                             </div>
                         </div>

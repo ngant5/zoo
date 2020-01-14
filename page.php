@@ -25,7 +25,7 @@
             $query_id = mysqli_query($conn, $sql_id);
             if (mysqli_num_rows($query_id) > 0) {
                 while ($_category = mysqli_fetch_assoc($query_id)) {
-                    $sql_content = "SELECT * FROM content left join category on content.cate_id = category.id WHERE category.id = {$_category['id']}";
+                    $sql_content = "SELECT * FROM content left join category on content.cate_id = category.id WHERE category.id = {$_category['id']} ORDER BY content_id DESC";
                     $query_content = mysqli_query($conn, $sql_content);
                     if (mysqli_num_rows($query_content) > 0) {
                         ?>
@@ -68,7 +68,7 @@
                 }
             } else {
                 // content of parent category
-                $sql_parent_content = "SELECT * FROM content left join category on content.cate_id = category.id WHERE category.id = {$g_id}";
+                $sql_parent_content = "SELECT * FROM content left join category on content.cate_id = category.id WHERE category.id = {$g_id} ORDER BY content_id DESC";
                 $query_parent_content = mysqli_query($conn, $sql_parent_content);
                 if (mysqli_num_rows($query_parent_content) > 0) {
                     while ($_parent_content = (mysqli_fetch_assoc($query_parent_content))) {
@@ -97,7 +97,7 @@
             if (mysqli_num_rows($query_cate) > 0) {
                 $_cate = mysqli_fetch_assoc($query_cate);
                 // query child content
-                $sql_child_content = "SELECT * FROM content left join category on content.cate_id = category.id WHERE category.id = {$g_id}";
+                $sql_child_content = "SELECT * FROM content left join category on content.cate_id = category.id WHERE category.id = {$g_id} ORDER BY content_id DESC";
                 $query_child_content = mysqli_query($conn, $sql_child_content);
                 if ($_cate['cate_name'] == "Dinning") {
                     if (mysqli_num_rows($query_child_content) > 0) {
@@ -167,11 +167,6 @@
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                 <li class="page-item"><a class="page-link" href="#">4</a></li>
                 <li class="page-item"><a class="page-link" href="#">5</a></li>
-                <li class="page-item"><a class="page-link" href="#">6</a></li>
-                <li class="page-item"><a class="page-link" href="#">7</a></li>
-                <li class="page-item"><a class="page-link" href="#">8</a></li>
-                <li class="page-item"><a class="page-link" href="#">9</a></li>
-                <li class="page-item"><a class="page-link" href="#">10</a></li>
                 <li class="page-item">
                 <a class="page-link" href="#" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>

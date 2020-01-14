@@ -170,11 +170,6 @@ if(isset($_GET["id"]) && $_GET["id"] > 0) {
             </div>
           </div>
         </div>
-
-        <p class="small text-center text-muted my-5">
-          <em>More table examples coming soon...</em>
-        </p>
-
       </div>
       <!-- /.container-fluid -->
 

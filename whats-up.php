@@ -30,32 +30,49 @@
                     Seize this opportunity, choose your team and run for wildlife! It’s the only run in Singapore where you can race or walk alongside Elephants and Giraffes with 4 race categories available!</p>
 			</div>
 			<div class="clearfix"></div>
-            <div class="col-md-4 event-grid">
+
+			<div class="col-md-4 event-grid">
 				<a href="#" class="mask">
-				<img src="images/rainforest.jpg" class="img-responsive zoom-img" alt=""></a>
+				<img src="images/Im-Labyrinth.png" class="img-responsive zoom-img" alt=""></a>
 			</div>
 			<div class="col-md-8 event-grid1">
-				<h4>Rainforest Lumina Season 2</h4>
-				<h5><i>19 FEB 2020, WEBNESDAY</i></h5>
-                <p>
-                    Rainforest Lumina is back with a second season! Hear the whispers of the rainforest and witness it come to life. At night fall, the rainforest magically transforms into an enchanted world of lights, virtual animals and immersive play.
-                    Come and discover your inner Creature Crew at Singapore Zoo.
-                </p>
+				<h4>Im Labyrinth der Bücher</h4>
+				<h5><i>14 Jan 2020, TUE</i></h5>
+				<p>Imagine flying with your best friends to Robin Hood in his dark forest. 
+					And arrive at Robinson Crusoe on the island. 
+					Or escape to the three musketeers in old Paris.
+				</p>
 			</div>
 			<div class="clearfix"></div>
 
-            <div class="col-md-4 event-grid">
+			<div class="col-md-4 event-grid">
 				<a href="#" class="mask">
-				<img src="images/houbii.jpg" class="img-responsive zoom-img" alt=""></a>
+				<img src="images/Vivid-Grand-Show.png" class="img-responsive zoom-img" alt=""></a>
 			</div>
 			<div class="col-md-8 event-grid1">
-				<h4>Houbii Rope Course</h4>
-				<h5><i>9 FEB 2020, SUNDAY</i></h5>
-                <p>
-                    Take on the challenge, with family and friends! Reach the top of this action-packed rope course!
-                </p>
+				<h4>VIVID Grand Show</h4>
+				<h5><i>14 Jan 2020, TUE</i></h5>
+				<p>
+					Who can you be? What’s your true ID? R’eye is transformed into an android – half human, half machine. Although her life is subject to external control, her yearning for freedom lives on. 
+					Indeed, one day she does begin moving to a different beat.
+				</p>
 			</div>
 			<div class="clearfix"></div>
+
+			<div class="col-md-4 event-grid">
+				<a href="#" class="mask">
+				<img src="images/Anthony-Caro.png" class="img-responsive zoom-img" alt=""></a>
+			</div>
+			<div class="col-md-8 event-grid1">
+				<h4>Anthony Caro</h4>
+				<h5><i>20 Dec 2019 - 12 Jul 2020</i></h5>
+				<p>
+					Together with the Würth Collection, the Staatliche Museen zu Berlin present "The Last Judgment Sculpture" (1995/1999), one of the most impressive works by the British artist Sir Anthony Caro (New Malden, Surrey 1924-2013 London). Already the emergence of the 25-part monumental installation was completed by the collector Prof. Dr. med. h.c. mult. 
+					Reinhold Würth accompanied.
+				</p>
+			</div>
+			<div class="clearfix"></div>
+
 
             <div class="col-md-4 event-grid">
 				<a href="#" class="mask">
@@ -63,7 +80,7 @@
 			</div>
 			<div class="col-md-8 event-grid1">
 				<h4>A Mammoth Adventure Back in Time</h4>
-				<h5><i>1 FEB 2020, SATURDAY</i></h5>
+				<h5><i>16 Nov - 29 Dec 2019</i></h5>
                 <p>Travel back in time this school holidays at Singapore Zoo. Stomp the grounds with over 15 life-like prehistoric giants like the Woolly Mammoth, Saber-toothed Tiger and more! Be in awe at the magnitude of their size while you snap photos with a caveman and help a baby mammoth find her mom. An array of fun filled activities awaits you!</p>
                 <p>What’s more! Local residents enjoy up to 20% off admission. </p>
 			</div>
@@ -84,16 +101,7 @@
                     <span class="sr-only">Previous</span>
                 </a>
                 </li>
-                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                <li class="page-item"><a class="page-link" href="#">6</a></li>
-                <li class="page-item"><a class="page-link" href="#">7</a></li>
-                <li class="page-item"><a class="page-link" href="#">8</a></li>
-                <li class="page-item"><a class="page-link" href="#">9</a></li>
-                <li class="page-item"><a class="page-link" href="#">10</a></li>
+                <li class="page-item active"><a class="page-link">1</a></li>
                 <li class="page-item">
                 <a class="page-link" href="#" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>

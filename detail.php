@@ -21,13 +21,11 @@ include('./common/cm-header.php');
 					if (mysqli_num_rows($result) > 0) {
 						while ($row = mysqli_fetch_assoc($result)) {
 				?>
-                <div class="col-md-3 welcome-grid"></div>
-				<div class="col-md-6 welcome-grid">
+				<div class="col-md-12 welcome-grid">
 					<h6 class="wel-info"><?=$row['title']?></h6>
 					<p class="card-text" id="show"><i><?= $row['detail'] ?></i></p>
-					<img style="height: 350px;" src="./admin/uploads/<?php echo $row['img_id']; ?>" class="img-responsive" alt="" /><br>
+					<img src="./admin/uploads/<?php echo $row['img_id']; ?>" class="img-responsive" alt="" /><br>
 				</div>
-                <div class="col-md-3 welcome-grid"></div>
 				<div class="clear-fix"></div>
 				<?php
 					}
