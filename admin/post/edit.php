@@ -102,7 +102,7 @@
 
   <div class="container">
     <div class="card card-register mx-auto mt-5">
-      <div class="card-header">Add Page</div>
+      <div class="card-header">Edit Post</div>
       <div class="card-body">
         <form method="post" action="edit.php?id=<?=$row['content_id']?>" enctype="multipart/form-data">
           <!-- <div class="form-group">
