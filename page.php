@@ -32,7 +32,7 @@
                         <h3><?=$_category['cate_name']?></h3>
                         <?php
                         while ($_content = mysqli_fetch_assoc($query_content)) {
-                            if ($_category['cate_name'] == "Dinning") {
+                            if ($_category['cate_name'] == "Dining") {
                                 ?>
                                 <div class="container">
                                     <div class="events-grids event-img">
@@ -40,7 +40,7 @@
                                             <h4><?=$_content['title']?></h4>
                                             <button class="btn" type="button" style="background-color:#ff9541;"><h4><a href="<?="http://localhost/zoo/detail.php?id={$_content['content_id']}" ?>">Menu</a></h4></button>
                                         </div>
-                                        <div class="col-md-8 event-grid">
+                                        <div class="col-md-8 event-grid1">
                                             <p><?=$_content['detail']?></p>
                                         </div>
                                     </div>
@@ -99,7 +99,7 @@
                 // query child content
                 $sql_child_content = "SELECT * FROM content left join category on content.cate_id = category.id WHERE category.id = {$g_id} ORDER BY content_id DESC";
                 $query_child_content = mysqli_query($conn, $sql_child_content);
-                if ($_cate['cate_name'] == "Dinning") {
+                if ($_cate['cate_name'] == "Dining") {
                     if (mysqli_num_rows($query_child_content) > 0) {
                         while ($_child_content = mysqli_fetch_assoc($query_child_content)) {
                             ?>
@@ -109,7 +109,7 @@
                                         <h4><?=$_child_content['title']?></h4>
                                         <button class="btn" type="button" style="background-color:#ff9541;"><h4><a href="<?="http://localhost/zoo/detail.php?id={$_child_content['content_id']}" ?>">Menu</a></h4></button>
                                     </div>
-                                    <div class="col-md-8 event-grid">
+                                    <div class="col-md-8 event-grid1">
                                         <p><?=$_child_content['detail']?></p>
                                     </div>
                                 </div>
