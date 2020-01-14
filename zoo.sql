@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 14, 2020 at 05:46 AM
+-- Generation Time: Jan 14, 2020 at 06:27 AM
 -- Server version: 10.1.39-MariaDB
 -- PHP Version: 7.3.5
 
@@ -42,9 +42,9 @@ CREATE TABLE `category` (
 
 INSERT INTO `category` (`id`, `cate_name`, `parent_id`, `user`, `status`) VALUES
 (1, 'Characters', 0, 2, 1),
-(2, 'Leisure & Dinning', 0, 2, 1),
+(2, 'Leisure & Dining', 0, 2, 1),
 (3, 'Leisure', 2, 2, 1),
-(4, 'Dinning', 2, 2, 1);
+(4, 'Dining', 2, 2, 1);
 
 -- --------------------------------------------------------
 
